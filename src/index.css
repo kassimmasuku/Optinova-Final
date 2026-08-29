@@ -1,0 +1,491 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Optinova Eye Care - Design System
+   Primary: Optinova Brand Green (#0C6835)
+   Secondary: White
+   Accent: Fresh Green
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap');
+
+@layer base {
+  :root {
+    /* Brand Green (from Optinova logo) */
+    --primary: 147 79% 23%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 147 60% 32%;
+    --primary-dark: 147 82% 15%;
+
+    /* Fresh Green Accent */
+    --accent: 152 56% 40%;
+    --accent-foreground: 0 0% 100%;
+    --accent-light: 152 50% 92%;
+    --accent-hover: 152 56% 32%;
+
+    /* Backgrounds */
+    --background: 0 0% 100%;
+    --foreground: 150 25% 12%;
+    --surface: 150 20% 98%;
+    --surface-alt: 150 25% 96%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 150 25% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 150 25% 12%;
+
+    --secondary: 150 25% 94%;
+    --secondary-foreground: 150 25% 12%;
+
+    --muted: 150 20% 95%;
+    --muted-foreground: 150 12% 40%;
+
+    --border: 150 16% 87%;
+    --input: 150 16% 87%;
+    --ring: 147 79% 23%;
+
+    --radius: 0.5rem;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(147, 82%, 15%) 0%, hsl(147, 79%, 23%) 50%, hsl(152, 56%, 32%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(147, 79%, 23%) 0%, hsl(147, 60%, 32%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(152, 56%, 40%) 0%, hsl(152, 56%, 30%) 100%);
+    --gradient-surface: linear-gradient(180deg, hsl(150, 25%, 98%) 0%, hsl(150, 20%, 95%) 100%);
+
+    /* Shadows */
+    --shadow-sm: 0 2px 8px hsl(147 79% 23% / 0.08);
+    --shadow-md: 0 4px 20px hsl(147 79% 23% / 0.12);
+    --shadow-lg: 0 8px 40px hsl(147 79% 23% / 0.16);
+    --shadow-xl: 0 16px 60px hsl(147 79% 23% / 0.2);
+    --shadow-accent: 0 4px 20px hsl(152 56% 40% / 0.25);
+
+    /* Sidebar */
+    --sidebar-background: 147 82% 15%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 152 56% 40%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 147 45% 25%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 147 45% 25%;
+    --sidebar-ring: 152 56% 40%;
+  }
+
+  .dark {
+    --background: 150 40% 7%;
+    --foreground: 150 20% 96%;
+    --card: 150 35% 11%;
+    --card-foreground: 150 20% 96%;
+    --popover: 150 35% 11%;
+    --popover-foreground: 150 20% 96%;
+    --primary: 147 60% 42%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 147 55% 52%;
+    --primary-dark: 147 70% 12%;
+    --secondary: 150 30% 18%;
+    --secondary-foreground: 150 20% 96%;
+    --surface: 150 35% 10%;
+    --surface-alt: 150 32% 13%;
+    --muted: 150 30% 18%;
+    --muted-foreground: 150 14% 68%;
+    --accent: 152 56% 48%;
+    --accent-foreground: 0 0% 100%;
+    --accent-light: 152 30% 22%;
+    --accent-hover: 152 56% 40%;
+    --destructive: 0 62% 40%;
+    --destructive-foreground: 150 20% 98%;
+    --border: 150 28% 20%;
+    --input: 150 28% 20%;
+    --ring: 147 60% 42%;
+    --sidebar-background: 147 70% 8%;
+    --sidebar-foreground: 150 20% 96%;
+    --sidebar-primary: 152 56% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 150 30% 16%;
+    --sidebar-accent-foreground: 150 20% 96%;
+    --sidebar-border: 150 30% 16%;
+    --sidebar-ring: 152 56% 48%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(147, 70%, 8%) 0%, hsl(147, 60%, 14%) 50%, hsl(152, 45%, 22%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(147, 60%, 18%) 0%, hsl(147, 55%, 28%) 100%);
+    --gradient-surface: linear-gradient(180deg, hsl(150, 35%, 10%) 0%, hsl(150, 32%, 8%) 100%);
+    --shadow-sm: 0 2px 8px hsl(0 0% 0% / 0.25);
+    --shadow-md: 0 4px 20px hsl(0 0% 0% / 0.3);
+    --shadow-lg: 0 8px 40px hsl(0 0% 0% / 0.35);
+    --shadow-xl: 0 16px 60px hsl(0 0% 0% / 0.4);
+  }
+
+  .dark .bg-white {
+    background-color: hsl(var(--card));
+  }
+
+  .dark .hero-overlay {
+    background: linear-gradient(
+      to right,
+      hsl(147, 70%, 6%, 0.95) 0%,
+      hsl(147, 60%, 10%, 0.85) 50%,
+      hsl(147, 55%, 12%, 0.5) 100%
+    );
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    @apply font-bold;
+    line-height: 1.2;
+  }
+}
+
+@layer components {
+  /* Navigation */
+  .nav-sticky {
+    @apply fixed top-0 left-0 right-0 z-50 transition-all duration-300;
+    background: hsl(var(--primary));
+    box-shadow: var(--shadow-md);
+  }
+
+  .nav-scrolled {
+    background: hsl(var(--primary-dark));
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* Hero */
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+
+  .hero-overlay {
+    background: linear-gradient(
+      to right,
+      hsl(147, 82%, 12%, 0.92) 0%,
+      hsl(147, 79%, 18%, 0.75) 50%,
+      hsl(147, 79%, 20%, 0.3) 100%
+    );
+  }
+
+  /* Section spacing */
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold;
+    color: hsl(var(--primary));
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .section-subtitle {
+    @apply text-lg;
+    color: hsl(var(--muted-foreground));
+  }
+
+  .accent-line {
+    @apply block w-16 h-1 mt-3 mb-6 rounded-full;
+    background: hsl(var(--accent));
+  }
+
+  /* Cards */
+  .service-card {
+    @apply p-6 rounded-2xl bg-card border transition-all duration-300 hover:-translate-y-2 cursor-pointer;
+    border-color: hsl(var(--border));
+    box-shadow: var(--shadow-sm);
+  }
+  .service-card:hover {
+    box-shadow: var(--shadow-lg);
+    border-color: hsl(var(--accent));
+  }
+
+  .service-icon {
+    @apply w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-4;
+    background: hsl(var(--accent-light));
+    color: hsl(var(--accent));
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-300 hover:scale-105 active:scale-95;
+    background: hsl(var(--accent));
+    color: hsl(var(--accent-foreground));
+    box-shadow: var(--shadow-accent);
+  }
+  .btn-primary:hover {
+    background: hsl(var(--accent-hover));
+    box-shadow: 0 8px 30px hsl(152 56% 40% / 0.4);
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm border-2 transition-all duration-300 hover:scale-105 active:scale-95;
+    border-color: hsl(0 0% 100% / 0.7);
+    color: hsl(0 0% 100%);
+  }
+  .btn-secondary:hover {
+    background: hsl(0 0% 100% / 0.15);
+    border-color: hsl(0 0% 100%);
+  }
+
+  .btn-outline-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm border-2 transition-all duration-300 hover:scale-105 active:scale-95;
+    border-color: hsl(var(--primary));
+    color: hsl(var(--primary));
+  }
+  .btn-outline-primary:hover {
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+  }
+
+  .btn-whatsapp {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-300 hover:scale-105 active:scale-95;
+    background: #25D366;
+    color: white;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35);
+  }
+  .btn-whatsapp:hover {
+    background: #1ebe57;
+  }
+
+  /* WhatsApp floating button */
+  .whatsapp-float {
+    @apply fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full flex items-center justify-center shadow-2xl transition-all duration-300 hover:scale-110;
+    background: #25D366;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+  }
+  .whatsapp-float:hover {
+    background: #1ebe57;
+  }
+
+  /* Feature icon */
+  .feature-icon {
+    @apply w-12 h-12 rounded-full flex items-center justify-center;
+    background: hsl(var(--accent-light));
+    color: hsl(var(--accent));
+  }
+
+  /* Gallery image */
+  .gallery-img {
+    @apply rounded-2xl overflow-hidden transition-all duration-300 hover:scale-105;
+    box-shadow: var(--shadow-md);
+  }
+
+  /* Testimonial card */
+  .testimonial-card {
+    @apply p-6 rounded-2xl bg-card border transition-all duration-300;
+    border-color: hsl(var(--border));
+    box-shadow: var(--shadow-sm);
+  }
+  .testimonial-card:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  /* Fact card */
+  .fact-card {
+    @apply rounded-2xl bg-card border overflow-hidden transition-all duration-300 cursor-pointer;
+    border-color: hsl(var(--border));
+    box-shadow: var(--shadow-sm);
+  }
+  .fact-card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: hsl(var(--accent));
+  }
+
+  /* Form inputs */
+  .form-input {
+    @apply w-full px-4 py-3 rounded-xl border bg-card transition-all duration-200 focus:outline-none focus:ring-2;
+    border-color: hsl(var(--border));
+    color: hsl(var(--foreground));
+  }
+  .form-input:focus {
+    border-color: hsl(var(--primary));
+    box-shadow: 0 0 0 3px hsl(var(--primary) / 0.1);
+  }
+
+  /* Badge */
+  .badge-accent {
+    @apply inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold;
+    background: hsl(var(--accent-light));
+    color: hsl(var(--accent));
+  }
+
+  /* Frames page — filters & cards (dark-mode safe) */
+  .frame-filter-panel {
+    @apply rounded-2xl border shadow-card p-5;
+    background: hsl(var(--card));
+    border-color: hsl(var(--border));
+  }
+
+  .frame-filter-label {
+    @apply text-xs font-semibold uppercase tracking-wide w-20 pt-1.5 shrink-0;
+    color: hsl(var(--foreground));
+  }
+
+  .frame-filter-chip {
+    @apply px-3 py-1.5 rounded-full text-xs font-medium border transition-all;
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+    border-color: hsl(var(--border));
+  }
+
+  .frame-filter-chip:hover {
+    border-color: hsl(var(--accent));
+  }
+
+  .frame-filter-chip-active {
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    border-color: hsl(var(--primary));
+  }
+
+  .frame-product-card {
+    @apply rounded-2xl border shadow-card overflow-hidden flex flex-col transition-all hover:shadow-hero;
+    background: hsl(var(--card));
+    border-color: hsl(var(--border));
+  }
+
+  .frame-product-card-clickable {
+    @apply cursor-pointer hover:border-accent/50 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2;
+  }
+
+  .dark .frame-promo-badge[data-promo="On Sale"] {
+    background: hsl(0, 45%, 22%) !important;
+    color: hsl(0, 70%, 75%) !important;
+  }
+
+  .dark .frame-promo-badge[data-promo="New Arrival"] {
+    background: hsl(var(--accent-light)) !important;
+    color: hsl(152, 62%, 62%) !important;
+  }
+
+  .dark .frame-promo-badge[data-promo="Bundle Deal"] {
+    background: hsl(220, 40%, 22%) !important;
+    color: hsl(220, 70%, 75%) !important;
+  }
+
+  .dark .frame-promo-badge[data-promo="Free Lens Upgrade"] {
+    background: hsl(152, 30%, 18%) !important;
+    color: hsl(152, 55%, 55%) !important;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .logo-marquee::before,
+  .logo-marquee::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 3rem;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .logo-marquee::before {
+    left: 0;
+    background: linear-gradient(to right, hsl(var(--background)), transparent);
+  }
+
+  .logo-marquee::after {
+    right: 0;
+    background: linear-gradient(to left, hsl(var(--background)), transparent);
+  }
+
+  .logo-marquee-track {
+    animation: logo-marquee-scroll var(--marquee-duration, 45s) linear infinite;
+  }
+
+  .logo-marquee:hover .logo-marquee-track {
+    animation-play-state: paused;
+  }
+
+  @keyframes logo-marquee-scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .logo-marquee-track {
+      animation: none;
+    }
+  }
+
+  .logo-slider-item img {
+    object-fit: contain;
+  }
+}
+
+@layer utilities {
+  .text-primary-color {
+    color: hsl(var(--primary));
+  }
+  .text-accent-color {
+    color: hsl(var(--accent));
+  }
+  .bg-primary-color {
+    background: hsl(var(--primary));
+  }
+  .bg-accent-color {
+    background: hsl(var(--accent));
+  }
+  .bg-hero {
+    background: var(--gradient-hero);
+  }
+  .bg-surface {
+    background: hsl(var(--surface));
+  }
+  .bg-surface-alt {
+    background: hsl(var(--surface-alt));
+  }
+  .shadow-card {
+    box-shadow: var(--shadow-md);
+  }
+  .shadow-hero {
+    box-shadow: var(--shadow-xl);
+  }
+
+  /* Animations */
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+  }
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+}
