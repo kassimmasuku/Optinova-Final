@@ -3,20 +3,6 @@ import os
 
 ROOT = os.path.join(os.path.dirname(__file__), "..", "public", "logos")
 
-MEDICAL = [
-    ("nicozdiamond", "NicozDiamond", "#007A4D", "#ffffff"),
-    ("campf", "CAMPF", "#1a5276", "#ffffff"),
-    ("masca", "MASCA", "#6C3483", "#ffffff"),
-    ("bonheur", "Bonheur", "#D35400", "#ffffff"),
-    ("czam", "C Zam", "#117A65", "#ffffff"),
-    ("health-international", "Health International", "#2874A6", "#ffffff"),
-    ("steward", "Steward Health", "#1F618D", "#ffffff"),
-    ("zb-life", "ZB Life", "#B7950B", "#ffffff"),
-    ("liberty", "Liberty Life", "#003DA5", "#ffffff"),
-    ("crescent", "Crescent", "#148F77", "#ffffff"),
-    ("corporate-24", "Corporate 24", "#566573", "#ffffff"),
-]
-
 BRANDS = [
     ("tom-ford", "TOM FORD", "#1a1a1a", "#1a1a1a"),
     ("police", "POLICE", "#111111", "#111111"),
@@ -47,13 +33,8 @@ def svg_wordmark(filename: str, text: str, color: str, _fg: str, outdir: str) ->
 
 
 def main() -> None:
-    med_dir = os.path.join(ROOT, "medical-aids")
     brand_dir = os.path.join(ROOT, "brands")
-    os.makedirs(med_dir, exist_ok=True)
     os.makedirs(brand_dir, exist_ok=True)
-
-    for fid, text, bg, fg in MEDICAL:
-        svg_wordmark(fid, text, bg, fg, med_dir)
 
     for fid, text, bg, fg in BRANDS:
         svg_wordmark(fid, text, bg, fg, brand_dir)

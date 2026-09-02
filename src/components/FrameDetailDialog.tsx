@@ -60,8 +60,8 @@ export default function FrameDetailDialog({ frame, onClose }: FrameDetailDialogP
             <div className="overflow-y-auto px-6 py-5 space-y-5 flex-1">
               <DialogHeader className="text-left space-y-3">
                 <div className="flex items-center gap-3">
-                  {frame.brand === "Optinova" ? (
-                    <img src={optinovaLogo} alt="Optinova" className="h-8 w-auto object-contain" />
+                  {frame.brand === "SG Eyewear" ? (
+                    <img src={optinovaLogo} alt="SG Eyewear" className="h-8 w-auto object-contain" />
                   ) : brandLogo ? (
                     <img src={brandLogo.src} alt={frame.brand} className="h-8 w-auto object-contain max-w-[120px]" />
                   ) : (

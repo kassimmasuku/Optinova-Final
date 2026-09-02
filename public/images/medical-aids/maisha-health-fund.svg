@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 90" role="img" aria-label="Maisha Health Fund">
+  <circle cx="40" cy="45" r="30" fill="#0B8A5B"/>
+  <path d="M40 22c10 10 14 18 14 26 0 8-6 14-14 14s-14-6-14-14c0-8 4-16 14-26z" fill="#F4F9F6"/>
+  <path d="M40 32v30" stroke="#0B8A5B" stroke-width="3" stroke-linecap="round"/>
+  <text x="84" y="40" font-family="Montserrat, Arial, sans-serif" font-size="26" font-weight="800" fill="#0B8A5B">MAISHA</text>
+  <text x="84" y="62" font-family="Montserrat, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="1.8" fill="#147A4C">HEALTH FUND</text>
+</svg>

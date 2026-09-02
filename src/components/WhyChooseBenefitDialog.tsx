@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/dialog";
 import { branches } from "@/data/branches";
 import { teamMembers, teamGroups, getTeamByGroup } from "@/data/team";
+import TeamAvatar from "@/components/TeamAvatar";
 import {
   equipmentShowcase,
   patientCareHighlights,
@@ -160,7 +161,7 @@ export default function WhyChooseBenefitDialog({ benefit, onClose }: WhyChooseBe
                         <div className="space-y-2">
                           {members.map((m) => (
                             <div key={m.id} className="flex items-center gap-3 p-3 rounded-xl border" style={{ borderColor: "hsl(var(--border))" }}>
-                              <img src={m.photo} alt={m.name} className="w-10 h-10 rounded-full object-cover object-top" />
+                              <TeamAvatar member={m} size="sm" />
                               <div>
                                 <div className="font-semibold text-sm" style={{ color: "hsl(var(--primary))", fontFamily: "Montserrat, sans-serif" }}>{m.name}</div>
                                 <div className="text-xs" style={{ color: "hsl(var(--accent))" }}>{m.role}</div>

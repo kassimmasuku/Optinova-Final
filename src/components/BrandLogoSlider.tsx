@@ -33,10 +33,10 @@ function BrandCard({
       aria-pressed={isSelected}
       aria-label={`Filter by ${brandName}`}
     >
-      {brandName === "Optinova" ? (
+      {brandName === "SG Eyewear" ? (
         <img
           src={optinovaLogo}
-          alt="Optinova"
+          alt="SG Eyewear"
           className="h-12 sm:h-16 w-auto object-contain max-w-full"
         />
       ) : logoPath ? (
@@ -89,7 +89,7 @@ export default function BrandLogoSlider({ selectedBrand, onSelectBrand }: BrandL
         </p>
       </div>
 
-      <LogoMarquee duration={55} className="-mx-1 px-1 py-1">
+      <LogoMarquee duration={75} className="-mx-1 px-1 py-1">
         {cards}
       </LogoMarquee>
 

@@ -3,12 +3,13 @@ import familyImg from "@/assets/family-glasses.jpg";
 import glassesDisplayImg from "@/assets/glasses-display.jpg";
 import { Link } from "react-router-dom";
 import { CallUsButton, WhatsAppButton } from "@/components/ContactActionButton";
+import BrandDirectory from "@/components/BrandDirectory";
 
 const products = [
   {
     icon: "🕶️",
     title: "Designer Eyeglass Frames",
-    desc: "Browse our curated collection of designer frames from leading brands. We stock styles to suit every face shape, personality, and budget — from classic to contemporary.",
+    desc: "Browse designer and affordable frames at competitive prices, including our own brand SG Eyewear, introduced in 2015. Styles for every face shape, personality and budget.",
     tags: ["Metal frames", "Acetate frames", "Rimless", "Semi-rimless", "Kids' frames"],
   },
   {
@@ -62,7 +63,7 @@ export default function EyewearPage() {
       <section className="pt-28 pb-16" style={{ background: "var(--gradient-hero)" }}>
         <div className="container mx-auto px-4 text-center text-white">
           <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>Eyewear & Vision Products</h1>
-          <p className="text-white/80 text-lg max-w-2xl mx-auto">Explore our wide range of quality eyewear and vision products for the whole family.</p>
+          <p className="text-white/80 text-lg max-w-2xl mx-auto">Designer and affordable frames, lenses and contact lenses for the whole family — including SG Eyewear, our own brand since 2015.</p>
         </div>
       </section>
 
@@ -103,6 +104,12 @@ export default function EyewearPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="section-padding">
+        <div className="container mx-auto px-4">
+          <BrandDirectory />
         </div>
       </section>
 

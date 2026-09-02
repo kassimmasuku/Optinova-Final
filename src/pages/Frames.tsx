@@ -19,7 +19,7 @@ export default function Frames() {
             Frames & Eyewear
           </h1>
           <p className="text-white/80 text-base md:text-lg max-w-2xl">
-            Browse prescription frames, sunglasses, contact lenses, and lens care essentials — tap any frame for details or use filters to narrow your search.
+            Designer and affordable frames including SG Eyewear, sunglasses, contact lenses and lens care — tap any frame for details or use filters to narrow your search.
           </p>
         </div>
       </section>

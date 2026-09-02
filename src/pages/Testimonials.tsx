@@ -74,7 +74,7 @@ export default function TestimonialsPage() {
       <section className="pt-28 pb-16" style={{ background: "var(--gradient-hero)" }}>
         <div className="container mx-auto px-4 text-center text-white">
           <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>Patient Testimonials</h1>
-          <p className="text-white/80 text-lg max-w-2xl mx-auto">Real reviews from real patients. See why Harare trusts Optinova Eye Care.</p>
+          <p className="text-white/80 text-lg max-w-2xl mx-auto">Real reviews from real patients. See why Zimbabwe trusts Optinova Africa.</p>
         </div>
       </section>
 

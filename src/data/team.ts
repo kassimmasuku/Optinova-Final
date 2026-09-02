@@ -5,7 +5,8 @@ import hastingsPhoto from "@/assets/hastings-chalawe.png";
 import stevenPhoto from "@/assets/steven-chimwala.png";
 import limbaniPhoto from "@/assets/limbani-kalonga.png";
 
-export type TeamGroup = "Leadership" | "Optometrists";
+export type TeamGroup = "Directors" | "Leadership" | "Optometrists";
+export type TeamAvatarType = "male" | "female";
 
 export interface TeamMember {
   id: string;
@@ -13,15 +14,85 @@ export interface TeamMember {
   role: string;
   experience: string;
   group: TeamGroup;
-  photo: string;
+  photo?: string;
+  avatar?: TeamAvatarType;
   qualifications: string[];
   areasOfExpertise: string[];
+  awards?: string[];
   biography: string;
 }
 
-export const teamGroups: TeamGroup[] = ["Leadership", "Optometrists"];
+export const teamGroups: TeamGroup[] = ["Directors", "Leadership", "Optometrists"];
 
 export const teamMembers: TeamMember[] = [
+  {
+    id: "solomon-guramatunhu",
+    name: "Dr. Solomon Guramatunhu",
+    role: "Director & Chief Executive Officer",
+    experience: "30+ years experience",
+    group: "Directors",
+    avatar: "male",
+    qualifications: [
+      "Medical degree — University of Zimbabwe",
+      "Ophthalmology qualifications — Royal College of Surgeons of England",
+      "Ophthalmology qualifications — Royal College of Surgeons of Edinburgh",
+      "Waterford Kamhlaba United World College of Southern Africa",
+      "Member — American Academy of Ophthalmology",
+      "Member — International Cataract & Refractive Surgery Society",
+      "Member — Ophthalmic Society of Southern Africa",
+      "Founder and Past President — Ophthalmological Society of Zimbabwe",
+    ],
+    areasOfExpertise: [
+      "Ophthalmic surgery",
+      "Cataract surgery",
+      "Eye care leadership",
+      "Healthcare business",
+      "Rural and humanitarian eye care",
+    ],
+    awards: [
+      "National Arts Merit Awards — Lifetime Award for support of Arts",
+      "Zimbabwe Medical Awards — Lifetime Award for Contribution to Medicine in Zimbabwe",
+      "Alfred Beit Scholarships — Academic Merit",
+      "Paul Harris Fellowship — Rotary International for Contribution to Eye Care in Zimbabwe",
+      "Research Council of Zimbabwe — Merit contribution to Ophthalmology",
+      "International Education Award — American Academy of Ophthalmology",
+      "Humanitarian Award — V50 RAISA",
+      "National Contributor of the Year — Zimbabwe Institute of Management",
+      "African Leadership Legend 2022",
+      "Lifetime Achievement Award in Business Leadership and Community Development 2020 — Zimbabwe Business Awards",
+      "Businessman of the Year Health and Medical Services 2020 — Zimbabwe Business Awards",
+      "Outstanding Health Professional Lifetime Achievement Award 2021 — Zimbabwe Community News",
+      "Manager of the Year 2007 — Zimbabwe Institute of Management",
+    ],
+    biography:
+      "Dr. Solomon Guramatunhu is Optinova Africa’s Chief Executive and a Director of the company. He has over 30 years of business experience and is a leading, renowned and respected ophthalmic surgeon in Zimbabwe and internationally, as well as a seasoned businessman and philanthropist. He attended Waterford Kamhlaba United World College of Southern Africa and then proceeded to the University of Zimbabwe, where he obtained his medical degree. He specialised in ophthalmology, obtaining qualifications from the Royal College of Surgeons of England and the Royal College of Surgeons of Edinburgh. His working career has included senior roles with the Ministry of Health in Zimbabwe, among them Chief Government Ophthalmic Surgeon and Head of Sekuru Kaguvi Eye Unit. He has also worked at Greenwood Eye Centre, as an Honorary Lecturer at the University of Zimbabwe, at Bindura State University of Science Education, and through the Eyes for Africa Project, which he founded to offer free cataract surgeries to rural people in Zimbabwe and surrounding countries. His international work includes the Glasgow Group of Hospitals in Scotland and an honorary lectureship at the American Academy of Ophthalmology. Dr Guramatunhu is a Rotarian, former Chairman of Bindura University of Science Education, Baines 24 Hour Emergency Rooms, and the National Gallery of Zimbabwe. He is also Patron of organisations including ZIMCARE TRUST, which raises funds for schools for the blind and deaf, and the Zimbabwe Rural Schools Library Trust. His businesses include Greenwood Park Eye Centre and SG Luxury Apartments.",
+  },
+  {
+    id: "lorraine-sanyika",
+    name: "Ms. Lorraine Sanyika",
+    role: "Operations Manager",
+    experience: "20+ years in the optical industry",
+    group: "Leadership",
+    avatar: "female",
+    qualifications: [
+      "OA ABDO",
+      "Diploma in Optical Retail Management — Association of British Dispensing Opticians",
+      "Diploma in Management and Leadership — Chartered Management Institute (UK)",
+    ],
+    areasOfExpertise: [
+      "Optical operations management",
+      "Practice leadership",
+      "Brand development",
+      "Quality service and products",
+      "Optical retail and IT",
+    ],
+    awards: [
+      "Platinum Award — Outstanding Woman in Health and Medical 2025, ZIMCEO Awards",
+      "Top Female Business Leader of the Year Health and Medical Services 2020 — Zimbabwe Business Awards",
+    ],
+    biography:
+      "Ms. Lorraine Sanyika (OA ABDO) is Optinova Africa’s Operations Manager, with over 20 years’ experience in the optical industry. She began her career in optics in 2001 as an optical assistant at Martin Jones Optometrists, then joined Premier Medical Investments (PSMI) Optometry, where she became a practice controller. She also has experience in the IT industry, joining Computer Centre Tanzania as a corporate sales executive and being promoted to corporate sales manager in less than two years — a role she held after taking a break from optics between 2007 and 2010. Her passion for optics brought her back to the profession in 2011. She later joined Provision Optometrists as a practice controller before joining the Optinova family in 2014. As one of Optinova’s pioneers, she has seen the company grow from four branches to eleven within a space of 10 years. Over the years she has helped Optinova develop into a world-class brand through rebranding and a focus on quality service and products. Optinova was awarded Company of the Year Health and Medical Services and named among the Zimbabwe top brands of the year by the Zimbabwe Business Awards Council 2020, and was Outstanding Optometry Service Platinum and Gold winner in two consecutive years at the ZIMCEO Awards.",
+  },
   {
     id: "leaveson-thom",
     name: "Leaveson Thom",

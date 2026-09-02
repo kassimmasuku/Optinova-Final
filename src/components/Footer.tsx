@@ -54,7 +54,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-white/65 text-sm leading-relaxed mb-5">
-              Providing high-quality vision care services for individuals and families across Harare and Zimbabwe. Professional, trusted, and affordable eye care.
+              Optinova Africa Pvt Ltd has provided quality, affordable eye care across Zimbabwe since 2012. Designer and affordable frames, including our own brand SG Eyewear, with an outreach programme for remote communities.
             </p>
             <div className="flex items-center gap-3">
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/10 hover:bg-accent flex items-center justify-center transition-all duration-200 hover:scale-110" aria-label="Facebook">
@@ -132,7 +132,7 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="container mx-auto px-4 py-5 flex flex-col md:flex-row items-center justify-between gap-3">
           <p className="text-white/50 text-xs text-center md:text-left">
-            © 2026 Optinova Eye Care. All Rights Reserved.
+            © 2026 Optinova Africa Pvt Ltd. All Rights Reserved.
           </p>
           <p className="text-white/40 text-xs">
             Serving Harare, Chitungwiza & Ngezi | Professional Eye Care

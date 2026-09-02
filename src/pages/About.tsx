@@ -5,12 +5,37 @@ import { Link } from "react-router-dom";
 import { CheckCircle, ChevronRight } from "lucide-react";
 import { teamMembers, teamGroups, getTeamByGroup, type TeamMember } from "@/data/team";
 import TeamProfileDialog from "@/components/TeamProfileDialog";
+import TeamAvatar from "@/components/TeamAvatar";
 import { CallUsButton } from "@/components/ContactActionButton";
 
-const values = [
-  { icon: "🎯", title: "Our Mission", desc: "To provide high-quality, accessible eye care to every patient in Harare through professional expertise and modern technology." },
-  { icon: "👁️", title: "Our Vision", desc: "A Zimbabwe where every person has access to excellent eye care and can enjoy clear, comfortable vision throughout their life." },
-  { icon: "❤️", title: "Our Values", desc: "Compassion, integrity, excellence, and community. We treat every patient with respect and dedicate ourselves to their long-term eye health." },
+const drivers = [
+  {
+    icon: "🎯",
+    title: "Our Mission",
+    desc: "To grow and develop a network of eye care practices regionally and provide the highest quality eye care through superior products and exceptional service so as to enhance people’s lives.",
+  },
+  {
+    icon: "👁️",
+    title: "Our Vision",
+    desc: "To be the market leader in the regional healthcare industry through utilising state-of-the-art technology, careful diagnosis of our patients’ needs, and working with pioneers, innovators and opinion leaders in healthcare.",
+  },
+  {
+    icon: "🌍",
+    title: "Our Goal",
+    desc: "To be the optometry provider of choice for all age groups in Africa.",
+  },
+];
+
+const coreValues = [
+  { title: "Integrity", desc: "To act with honesty and sincerity in all our endeavours." },
+  { title: "Teamwork", desc: "Work towards common goals through open communication, mutual support and respect for diverse backgrounds — respect differences and build upon our strengths." },
+  { title: "Recognition", desc: "Ensure that people’s individual needs and successes are supported and recognised." },
+  { title: "Innovation", desc: "To be open-minded, challenging conventional thinking to improve our processes and implement new ideas competitively." },
+  { title: "Continuous Growth", desc: "To provide an environment where our people and business can flourish and grow." },
+  { title: "People", desc: "Our focus is our customers, business associates and employees — we acknowledge them as our vital business partners." },
+  { title: "Confidentiality", desc: "We protect patient information and respect privacy in every interaction." },
+  { title: "Empathy", desc: "We listen with care and treat every patient with understanding." },
+  { title: "Reliability", desc: "We deliver consistent, dependable care that patients can count on." },
 ];
 
 export default function AboutPage() {
@@ -20,8 +45,8 @@ export default function AboutPage() {
     <>
       <section className="pt-28 pb-16" style={{ background: "var(--gradient-hero)" }}>
         <div className="container mx-auto px-4 text-center text-white">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>About Optinova Eye Care</h1>
-          <p className="text-white/80 text-lg max-w-2xl mx-auto">Dedicated to providing exceptional vision care for Harare and Zimbabwe since 2014.</p>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>About Optinova Africa</h1>
+          <p className="text-white/80 text-lg max-w-2xl mx-auto">Dedicated to providing quality, affordable eye care across Zimbabwe since 2012.</p>
         </div>
       </section>
 
@@ -33,20 +58,20 @@ export default function AboutPage() {
               <span className="accent-line" />
               <div className="space-y-4 text-base leading-relaxed" style={{ color: "hsl(var(--muted-foreground))" }}>
                 <p>
-                  Optinova Eye Care is dedicated to providing high-quality vision care services for individuals and families across Harare, Chitungwiza and beyond. Every one of our branches combines modern diagnostic technology with personalised patient care, so each patient receives accurate eye examinations and the best vision solutions available.
+                  Optinova Africa Pvt Ltd was formed in 2012 as the Directors noted a gap in the optometry field. At the time Zimbabwe did not have any schools of optometry, and provision of optometry services was not affordable to the population. Optinova sought to provide quality eye care at affordable prices, recognising that healthy vision is vital for people to work, study, drive and play.
                 </p>
                 <p>
-                  Founded on the belief that quality eye care should be accessible to all, we have grown from a single practice into a network of eleven branches serving thousands of patients: Arundel Village, Avondale, Borrowdale, Chitungwiza, Eastgate Mall, Greenfields, Greenwood Park, Highland Park, Leopold Takawira, Newlands and Zimplats Ngezi.
+                  Since its formation, Optinova has become one of the leading optometry providers in Zimbabwe, with branches in Harare, Chitungwiza and Ngezi. Highly trained and qualified Optometrists and staff provide vision care ranging from sight testing and correction to diagnosis, treatment and management of vision changes, as well as lenses and contact lenses.
                 </p>
                 <p>
-                  Whether you visit us in the city centre or in your own neighbourhood, you receive the same standard of care, the same trusted clinical team culture and the same wide selection of eyewear.
+                  Optinova provides glasses and eyewear to a whole spectrum of the Zimbabwean population, catering for designer and affordable frames at competitive prices. In 2015 the company introduced its own frame brand — SG Eyewear.
                 </p>
                 <p>
-                  Our team is committed to helping patients maintain clear, comfortable vision while promoting long-term eye health. We invest continuously in the latest diagnostic equipment to deliver the most accurate assessments and treatments.
+                  Optinova also runs an outreach programme to ensure remote areas of Zimbabwe are covered. The company’s ultimate goal is to go beyond Zimbabwe’s borders and have a strong presence in Africa.
                 </p>
               </div>
               <div className="mt-8 grid grid-cols-2 gap-4">
-                {["Evidence-based practice", "Latest diagnostic tech", "Patient-first approach", "Community focused"].map((v) => (
+                {["Affordable quality care", "SG Eyewear since 2015", "Outreach to remote areas", "Growing across Africa"].map((v) => (
                   <div key={v} className="flex items-center gap-2 text-sm font-medium" style={{ color: "hsl(var(--foreground))" }}>
                     <CheckCircle className="w-4 h-4 flex-shrink-0" style={{ color: "hsl(var(--accent))" }} />
                     {v}
@@ -68,7 +93,7 @@ export default function AboutPage() {
             <span className="accent-line mx-auto" />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {values.map((v) => (
+            {drivers.map((v) => (
               <div key={v.title} className="service-card text-center">
                 <div className="text-4xl mb-4">{v.icon}</div>
                 <h3 className="text-xl font-bold mb-3" style={{ color: "hsl(var(--primary))", fontFamily: 'Montserrat, sans-serif' }}>{v.title}</h3>
@@ -80,6 +105,23 @@ export default function AboutPage() {
       </section>
 
       <section className="section-padding">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="section-title">Our Values</h2>
+            <span className="accent-line mx-auto" />
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {coreValues.map((v) => (
+              <div key={v.title} className="service-card">
+                <h3 className="text-lg font-bold mb-2" style={{ color: "hsl(var(--primary))", fontFamily: "Montserrat, sans-serif" }}>{v.title}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: "hsl(var(--muted-foreground))" }}>{v.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-padding bg-surface-alt">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-12">
             <div className="rounded-3xl overflow-hidden shadow-hero lg:sticky lg:top-28">
@@ -113,9 +155,7 @@ export default function AboutPage() {
                             className="w-full flex items-center gap-4 p-4 rounded-xl border bg-white transition-all hover:shadow-md hover:border-accent text-left group"
                             style={{ borderColor: "hsl(var(--border))" }}
                           >
-                            <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-transparent group-hover:ring-accent transition-all">
-                              <img src={m.photo} alt={m.name} className="w-full h-full object-cover object-top" />
-                            </div>
+                            <TeamAvatar member={m} size="md" className="flex-shrink-0 ring-2 ring-transparent group-hover:ring-accent transition-all" />
                             <div className="flex-1 min-w-0">
                               <div className="font-bold text-sm" style={{ color: "hsl(var(--primary))", fontFamily: 'Montserrat, sans-serif' }}>{m.name}</div>
                               <div className="text-xs" style={{ color: "hsl(var(--accent))" }}>{m.role}</div>
@@ -140,7 +180,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              { num: "10+", label: "Years in Practice" },
+              { num: "14+", label: "Years in Practice" },
               { num: "5,000+", label: "Patients Served" },
               { num: String(teamMembers.length), label: "Expert Professionals" },
               { num: "11", label: "Branch Locations" },
@@ -157,7 +197,7 @@ export default function AboutPage() {
       <section className="section-padding text-center">
         <div className="container mx-auto px-4 max-w-2xl">
           <h2 className="section-title mb-3">Ready to Experience the Difference?</h2>
-          <p className="text-base mb-8" style={{ color: "hsl(var(--muted-foreground))" }}>Book your eye examination today and discover why Harare trusts Optinova Eye Care.</p>
+          <p className="text-base mb-8" style={{ color: "hsl(var(--muted-foreground))" }}>Book your eye examination today and discover why Zimbabwe trusts Optinova Africa.</p>
           <div className="flex flex-wrap justify-center gap-3">
             <Link to="/book-appointment" className="btn-primary px-8">📅 Book Appointment</Link>
             <CallUsButton className="px-8" variant="outline" />

@@ -96,7 +96,7 @@ export default function HomePage() {
               <span style={{ color: "hsl(152, 62%, 62%)" }}>You Can Trust</span>
             </h1>
             <p className="text-white/85 text-lg md:text-xl mb-8 leading-relaxed animate-fade-up delay-200">
-              Comprehensive eye examinations, modern diagnostics, and quality eyewear solutions in the heart of Harare.
+              Quality, affordable eye care since 2012 — sight testing, lenses and designer frames across Harare, Chitungwiza and Ngezi.
             </p>
             <div className="flex flex-wrap gap-3 animate-fade-up delay-300">
               <Link to="/book-appointment" className="btn-primary text-sm px-7 py-3.5">
@@ -156,7 +156,7 @@ export default function HomePage() {
               <h2 className="section-title">Why Choose Optinova Eye Care?</h2>
               <span className="accent-line" />
               <p className="text-base leading-relaxed mb-8" style={{ color: "hsl(var(--muted-foreground))" }}>
-                We combine years of optometry expertise with the latest diagnostic technology to deliver personalised, compassionate eye care to every patient in Harare and beyond. Click any benefit to learn more.
+                Since 2012 we have provided quality, affordable eye care through highly trained Optometrists across Harare, Chitungwiza and Ngezi — with an outreach programme for remote Zimbabwe and a goal to grow across Africa. Click any benefit to learn more.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {whyChooseBenefits.map((b) => (
@@ -198,7 +198,7 @@ export default function HomePage() {
                 />
               </div>
               <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-5 shadow-card border" style={{ borderColor: "hsl(var(--border))" }}>
-                <div className="text-3xl font-bold mb-1" style={{ color: "hsl(var(--primary))", fontFamily: 'Montserrat, sans-serif' }}>10+</div>
+                <div className="text-3xl font-bold mb-1" style={{ color: "hsl(var(--primary))", fontFamily: 'Montserrat, sans-serif' }}>14+</div>
                 <div className="text-sm" style={{ color: "hsl(var(--muted-foreground))" }}>Years of Experience</div>
               </div>
               <div className="absolute -top-6 -right-6 bg-white rounded-2xl p-5 shadow-card border" style={{ borderColor: "hsl(var(--border))" }}>

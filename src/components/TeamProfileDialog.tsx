@@ -1,4 +1,4 @@
-import { Briefcase, Clock, GraduationCap } from "lucide-react";
+import { Award, Briefcase, Clock, GraduationCap } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -6,6 +6,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import type { TeamMember } from "@/data/team";
+import TeamAvatar from "@/components/TeamAvatar";
 
 interface TeamProfileDialogProps {
   member: TeamMember | null;
@@ -19,11 +20,15 @@ export default function TeamProfileDialog({ member, onClose }: TeamProfileDialog
         {member && (
           <>
             <div className="h-[32%] min-h-[150px] max-h-[220px] shrink-0 rounded-t-2xl bg-muted/40 flex items-center justify-center px-4 py-4">
-              <img
-                src={member.photo}
-                alt={member.name}
-                className="max-h-full max-w-[85%] object-contain rounded-2xl shadow-md"
-              />
+              {member.photo ? (
+                <img
+                  src={member.photo}
+                  alt={member.name}
+                  className="max-h-full max-w-[85%] object-contain rounded-2xl shadow-md"
+                />
+              ) : (
+                <TeamAvatar member={member} size="lg" />
+              )}
             </div>
 
             <div className="flex-1 min-h-0 overflow-y-auto px-6 py-5 space-y-5">
@@ -83,6 +88,25 @@ export default function TeamProfileDialog({ member, onClose }: TeamProfileDialog
                   ))}
                 </div>
               </div>
+
+              {member.awards && member.awards.length > 0 && (
+                <div>
+                  <h4
+                    className="text-xs font-bold uppercase tracking-wider mb-2 flex items-center gap-2"
+                    style={{ color: "hsl(var(--primary))", fontFamily: "Montserrat, sans-serif" }}
+                  >
+                    <Award className="w-3.5 h-3.5" /> Awards & Recognition
+                  </h4>
+                  <ul className="space-y-1.5">
+                    {member.awards.map((award) => (
+                      <li key={award} className="text-xs leading-relaxed flex items-start gap-2" style={{ color: "hsl(var(--muted-foreground))" }}>
+                        <span className="w-1 h-1 rounded-full flex-shrink-0 mt-1.5" style={{ background: "hsl(var(--accent))" }} />
+                        {award}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
 
               <div>
                 <h4

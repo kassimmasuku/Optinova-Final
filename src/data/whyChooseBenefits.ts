@@ -42,7 +42,7 @@ export const whyChooseBenefits: WhyChooseBenefit[] = [
     id: "professionals",
     text: "Experienced Eye Care Professionals",
     title: "Experienced Eye Care Professionals",
-    summary: "Our qualified optometrists, optical technicians and support staff bring years of combined experience to every patient visit.",
+    summary: "Highly trained and qualified Optometrists and staff provide sight testing, correction, diagnosis, treatment and management of vision changes, as well as lenses and contact lenses.",
     type: "team",
   },
   {
@@ -70,7 +70,7 @@ export const whyChooseBenefits: WhyChooseBenefit[] = [
     id: "affordable",
     text: "Affordable Vision Solutions",
     title: "Affordable Vision Solutions",
-    summary: "Quality eyewear and vision care across a range of price points, with options to suit every budget and need.",
+    summary: "Designer and affordable frames at competitive prices, including our own brand SG Eyewear, introduced in 2015 — plus lenses and contact lenses for every need.",
     type: "affordable",
   },
   {
@@ -103,7 +103,7 @@ export const patientCareHighlights = [
 export const affordableHighlights = [
   {
     title: "Wide Frame Selection",
-    description: "From everyday essentials to designer frames — options for every style and budget.",
+    description: "Designer and affordable frames, including SG Eyewear — options for every style and budget.",
     image: glassesImg,
   },
   {
