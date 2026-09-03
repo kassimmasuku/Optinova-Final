@@ -1,7 +1,29 @@
+export interface HoursLine {
+  label: string;
+  time: string;
+}
+
 export interface BranchHours {
   weekdays: string;
   saturday: string;
   sunday: string;
+  /** When set, replaces the standard Mon–Fri / Sat / Sun lines */
+  custom?: HoursLine[];
+}
+
+export function getBranchHoursLines(hours: BranchHours): HoursLine[] {
+  if (hours.custom?.length) return hours.custom;
+  return [
+    { label: "Mon–Fri", time: hours.weekdays },
+    { label: "Saturday", time: hours.saturday },
+    { label: "Sunday", time: hours.sunday },
+  ];
+}
+
+export function formatBranchHoursSummary(hours: BranchHours): string {
+  return getBranchHoursLines(hours)
+    .map((line) => `${line.label} ${line.time}`)
+    .join(" · ");
 }
 
 export interface Branch {
@@ -15,6 +37,7 @@ export interface Branch {
   mobile?: string;
   email: string;
   hours: BranchHours;
+  offer?: string;
 }
 
 export const branches: Branch[] = [
@@ -28,6 +51,7 @@ export const branches: Branch[] = [
     mobile: "0719543248",
     email: "arundel@optinova.co.zw",
     hours: { weekdays: "08:00–17:00", saturday: "09:00–13:00", sunday: "Closed" },
+    offer: "Free screening",
   },
   {
     id: "avondale",
@@ -133,6 +157,14 @@ export const branches: Branch[] = [
     query: "Ngezi Platinum Mine, Selous, Zimbabwe",
     mobile: "0771519125",
     email: "ngezi@optinova.co.zw",
-    hours: { weekdays: "08:00–17:00", saturday: "09:00–13:00", sunday: "Closed" },
+    hours: {
+      weekdays: "Closed",
+      saturday: "Closed",
+      sunday: "Closed",
+      custom: [
+        { label: "Wednesday", time: "09:00–16:00" },
+        { label: "All other days", time: "Closed" },
+      ],
+    },
   },
 ];

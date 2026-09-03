@@ -89,7 +89,7 @@ export default function HomePage() {
           <div className="max-w-2xl">
             <div className="badge-accent mb-5 animate-fade-up">
               <Eye className="w-3.5 h-3.5" />
-              Optometrist in Harare, Zimbabwe
+              Optometrist in Zimbabwe
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight animate-fade-up delay-100">
               Professional Eye Care{" "}

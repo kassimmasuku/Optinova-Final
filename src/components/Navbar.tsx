@@ -36,7 +36,7 @@ export default function Navbar() {
       <div className="container mx-auto px-4">
         {/* Top bar */}
         <div className="hidden md:flex items-center justify-between py-2 border-b border-white/10 text-white/80 text-xs">
-          <span>🕐 Mon–Fri: 8:00 AM – 5:00 PM · Sat: 9:00 AM – 1:00 PM</span>
+          <span>🕐 Mon–Fri: 8:00 AM – 5:00 PM · Sat: 9:00 AM – 1:00 PM · Ngezi: Wed 9:00 AM – 4:00 PM</span>
           <ThemeToggle variant="navbar" />
         </div>
 

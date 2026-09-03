@@ -117,6 +117,7 @@ export default function Footer() {
                 <div className="text-white/65 text-sm">
                   <div>Mon – Fri: 8:00 AM – 5:00 PM</div>
                   <div>Sat: 9:00 AM – 1:00 PM</div>
+                  <div>Ngezi: Wed 9:00 AM – 4:00 PM</div>
                 </div>
               </div>
             </div>

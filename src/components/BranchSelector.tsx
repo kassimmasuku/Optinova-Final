@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { MapPin, ExternalLink, Phone, Mail, Clock } from "lucide-react";
-import { branches } from "@/data/branches";
+import { branches, getBranchHoursLines } from "@/data/branches";
 import { getEmailLink, getTelLink, getWhatsAppLink } from "@/lib/contact";
 
 export { branches };
@@ -11,7 +11,7 @@ export default function BranchSelector() {
   const q = encodeURIComponent(branch.query);
 
   return (
-    <section className="section-padding" style={{ background: "hsl(var(--muted))" }}>
+    <section id="find-branch" className="section-padding scroll-mt-28" style={{ background: "hsl(var(--muted))" }}>
       <div className="container mx-auto px-4">
         <div className="text-center mb-8">
           <h2 className="section-title">Find Your Nearest Branch</h2>
@@ -47,6 +47,9 @@ export default function BranchSelector() {
             <div className="font-bold text-base mb-2" style={{ color: "hsl(var(--primary))", fontFamily: "Montserrat, sans-serif" }}>
               {branch.full}
             </div>
+            {branch.offer && (
+              <div className="badge-accent mb-3">{branch.offer}</div>
+            )}
             <p className="text-sm mb-4" style={{ color: "hsl(var(--muted-foreground))" }}>{branch.address}</p>
 
             <div className="space-y-2 text-sm mb-4" style={{ color: "hsl(var(--muted-foreground))" }}>
@@ -77,9 +80,11 @@ export default function BranchSelector() {
               <div className="flex items-start gap-2 pt-1">
                 <Clock className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: "hsl(var(--accent))" }} />
                 <div>
-                  <div>Mon–Fri: {branch.hours.weekdays}</div>
-                  <div>Saturday: {branch.hours.saturday}</div>
-                  <div>Sunday: {branch.hours.sunday}</div>
+                  {getBranchHoursLines(branch.hours).map((line) => (
+                    <div key={line.label}>
+                      {line.label}: {line.time}
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>

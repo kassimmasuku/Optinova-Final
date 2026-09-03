@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { MapPin, Globe, Clock, ExternalLink, Phone, Mail } from "lucide-react";
-import { branches } from "@/data/branches";
+import { branches, getBranchHoursLines } from "@/data/branches";
 import { getEmailLink, getTelLink, getWhatsAppLink } from "@/lib/contact";
 import { CallUsButton, WhatsAppButton, EmailButton } from "@/components/ContactActionButton";
 
@@ -59,6 +59,7 @@ export default function ContactPage() {
                       <div>Mon – Fri: 8:00 AM – 5:00 PM</div>
                       <div>Saturday: 9:00 AM – 1:00 PM</div>
                       <div>Sunday: Closed</div>
+                      <div>Ngezi: Wednesday 9:00 AM – 4:00 PM only</div>
                     </div>
                   </div>
                 </div>
@@ -122,6 +123,7 @@ export default function ContactPage() {
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div className="font-bold text-sm mb-2" style={{ color: "hsl(var(--primary))", fontFamily: 'Montserrat, sans-serif' }}>{b.full}</div>
+                {b.offer && <div className="badge-accent mb-3 w-fit">{b.offer}</div>}
                 <p className="text-sm mb-3 flex-1" style={{ color: "hsl(var(--muted-foreground))" }}>{b.address}</p>
 
                 <div className="space-y-1.5 text-xs mb-4" style={{ color: "hsl(var(--muted-foreground))" }}>
@@ -150,9 +152,11 @@ export default function ContactPage() {
                   <div className="flex items-start gap-2 pt-1">
                     <Clock className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: "hsl(var(--accent))" }} />
                     <div>
-                      <div>Mon–Fri: {b.hours.weekdays}</div>
-                      <div>Sat: {b.hours.saturday}</div>
-                      <div>Sun: {b.hours.sunday}</div>
+                      {getBranchHoursLines(b.hours).map((line) => (
+                        <div key={line.label}>
+                          {line.label}: {line.time}
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>

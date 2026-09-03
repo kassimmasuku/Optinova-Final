@@ -5,6 +5,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import NewsletterSignup from "@/components/NewsletterSignup";
+import ScreeningPromoBadge from "@/components/ScreeningPromoBadge";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import { BranchContactProvider } from "@/context/BranchContactContext";
 import { ThemeProvider } from "@/context/ThemeContext";
@@ -44,7 +46,9 @@ const App = () => (
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
+          <NewsletterSignup />
           <Footer />
+          <ScreeningPromoBadge />
           <WhatsAppFloat />
         </BranchContactProvider>
       </BrowserRouter>

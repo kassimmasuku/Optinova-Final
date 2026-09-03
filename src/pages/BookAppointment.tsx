@@ -93,7 +93,11 @@ export default function BookAppointmentPage() {
                       <label className="block text-sm font-semibold mb-2" style={{ color: "hsl(var(--foreground))" }}>Preferred Branch *</label>
                       <select name="branch" value={form.branch} onChange={handleChange} required className="form-input">
                         <option value="">Select a branch...</option>
-                        {branches.map((b) => <option key={b.id} value={b.id}>{b.full}</option>)}
+                        {branches.map((b) => (
+                          <option key={b.id} value={b.id}>
+                            {b.offer ? `${b.full} — ${b.offer}` : b.full}
+                          </option>
+                        ))}
                       </select>
                     </div>
 
@@ -159,6 +163,9 @@ export default function BookAppointmentPage() {
                       <span style={{ color: h.hrs === "Closed" ? "hsl(var(--destructive))" : "hsl(var(--accent))" }}>{h.hrs}</span>
                     </div>
                   ))}
+                  <p className="text-xs pt-3" style={{ color: "hsl(var(--muted-foreground))" }}>
+                    Ngezi is open Wednesday only, 9:00 AM – 4:00 PM.
+                  </p>
                 </div>
               </div>
 

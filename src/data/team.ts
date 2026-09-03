@@ -101,9 +101,9 @@ export const teamMembers: TeamMember[] = [
     group: "Leadership",
     photo: leavesonPhoto,
     qualifications: [
-      "BSc in Optometry — Mzuzu University, Malawi",
-      "Master's degree in Optometry",
-      "PhD in Optometry (in progress) — University of KwaZulu-Natal, South Africa",
+      "BSc (Mw)",
+      "Masters in Optometry (UKZN-RSA)",
+      "PhD — ongoing (UKZN-RSA)",
       "Coordinator and Lecturer in Optometry — University of Zimbabwe",
     ],
     areasOfExpertise: [
@@ -141,8 +141,8 @@ export const teamMembers: TeamMember[] = [
       "Damaris Chawinga is a qualified Optometrist with a decade of experience across public and private healthcare sectors. She is committed to delivering high-quality, patient-centred eye care and improving patient outcomes.",
   },
   {
-    id: "wyson",
-    name: "Wyson",
+    id: "wyson-thomson",
+    name: "Wyson Thomson",
     role: "Optometrist",
     experience: "5+ years experience",
     group: "Optometrists",
@@ -159,7 +159,7 @@ export const teamMembers: TeamMember[] = [
       "Patient-centred eye care",
     ],
     biography:
-      "Wyson worked in the public and private sector before joining Optinova. He is passionate about contact lenses and myopia progression control, and is currently pursuing an MSc specialising in contact lenses and myopia control. With over 5 years of experience in both public and private sector, Wyson provides high-quality, patient-centred eye care that promotes better vision and well-being.",
+      "Wyson Thomson worked in the public and private sector before joining Optinova. He is passionate about contact lenses and myopia progression control, and is currently pursuing an MSc specialising in contact lenses and myopia control. With over 5 years of experience in both public and private sector, Wyson provides high-quality, patient-centred eye care that promotes better vision and well-being.",
   },
   {
     id: "hastings-chalawe",

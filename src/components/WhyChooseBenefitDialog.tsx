@@ -6,7 +6,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { branches } from "@/data/branches";
+import { branches, formatBranchHoursSummary } from "@/data/branches";
 import { teamMembers, teamGroups, getTeamByGroup } from "@/data/team";
 import TeamAvatar from "@/components/TeamAvatar";
 import {
@@ -109,6 +109,7 @@ export default function WhyChooseBenefitDialog({ benefit, onClose }: WhyChooseBe
                       >
                         {branch.full}
                       </div>
+                      {branch.offer && <div className="badge-accent mb-2 w-fit">{branch.offer}</div>}
                       <div className="flex items-start gap-2 text-xs mb-2" style={{ color: "hsl(var(--muted-foreground))" }}>
                         <MapPin className="w-3.5 h-3.5 flex-shrink-0 mt-0.5" style={{ color: "hsl(var(--accent))" }} />
                         {branch.address}
@@ -124,7 +125,7 @@ export default function WhyChooseBenefitDialog({ benefit, onClose }: WhyChooseBe
                       </div>
                       <div className="flex items-start gap-1 text-xs mb-3" style={{ color: "hsl(var(--muted-foreground))" }}>
                         <Clock className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: "hsl(var(--accent))" }} />
-                        <span>Mon–Fri {branch.hours.weekdays} · Sat {branch.hours.saturday}</span>
+                        <span>{formatBranchHoursSummary(branch.hours)}</span>
                       </div>
                       <div className="flex flex-wrap gap-2">
                         {getTelLink(branch) && (

@@ -119,9 +119,10 @@ export const affordableHighlights = [
 ];
 
 export const appointmentHours = [
-  { label: "Monday – Friday", time: "8:00 AM – 5:00 PM", note: "All branches" },
+  { label: "Monday – Friday", time: "8:00 AM – 5:00 PM", note: "Most branches" },
   { label: "Saturday", time: "9:00 AM – 1:00 PM", note: "Most branches" },
   { label: "Sunday", time: "Closed", note: "All branches" },
   { label: "Highland Park", time: "Mon–Fri 9:00 AM – 6:00 PM", note: "Extended weekday hours" },
   { label: "Greenwood Park", time: "Saturday closed", note: "Weekdays only" },
+  { label: "Ngezi", time: "Wednesday 9:00 AM – 4:00 PM", note: "Closed all other days" },
 ];

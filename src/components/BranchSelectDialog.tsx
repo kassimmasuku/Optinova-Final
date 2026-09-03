@@ -75,6 +75,7 @@ export default function BranchSelectDialog({
               >
                 {branch.full}
               </div>
+              {branch.offer && <div className="badge-accent mb-2 w-fit">{branch.offer}</div>}
               <div className="flex items-start gap-2 text-xs" style={{ color: "hsl(var(--muted-foreground))" }}>
                 <MapPin className="w-3.5 h-3.5 flex-shrink-0 mt-0.5" style={{ color: "hsl(var(--accent))" }} />
                 <span>{branch.address}</span>
