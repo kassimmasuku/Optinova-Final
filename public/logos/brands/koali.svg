@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 110" role="img" aria-label="Koali">
+  <g fill="#6B2D5B">
+    <path d="M28 78c18-28 48-32 64-8 4 6 2 14-4 16-8 2-14-8-22-6-10 2-12 18-24 16-10-2-14-12-14-18z"/>
+    <circle cx="46" cy="42" r="7"/>
+    <circle cx="70" cy="34" r="5"/>
+    <circle cx="86" cy="48" r="4"/>
+  </g>
+  <text x="110" y="68" fill="#6B2D5B"
+    font-family="Palatino, Palatino Linotype, Georgia, serif"
+    font-size="42" font-weight="700" letter-spacing="3">KOALI</text>
+</svg>

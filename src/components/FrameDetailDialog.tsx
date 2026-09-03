@@ -7,8 +7,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { ContactActionButton } from "@/components/ContactActionButton";
-import optinovaLogo from "@/assets/optinova-logo.png";
-import { brandLogoPaths } from "@/lib/brandLogos";
+import { getBrandLogoSrc } from "@/lib/brandLogos";
 import type { FrameProduct } from "@/data/frames";
 import { getPromoLabel, getPromoStyle } from "@/data/frames";
 
@@ -32,7 +31,7 @@ function SpecRow({ icon: Icon, label, value }: { icon: typeof Tag; label: string
 export default function FrameDetailDialog({ frame, onClose }: FrameDetailDialogProps) {
   const promoLabel = frame ? getPromoLabel(frame.promo) : null;
   const promoStyle = frame ? getPromoStyle(frame.promo) : undefined;
-  const brandLogo = frame ? brandLogoPaths[frame.brand] : undefined;
+  const brandLogoSrc = frame ? getBrandLogoSrc(frame.brand) : undefined;
 
   return (
     <Dialog open={frame !== null} onOpenChange={(open) => !open && onClose()}>
@@ -60,13 +59,7 @@ export default function FrameDetailDialog({ frame, onClose }: FrameDetailDialogP
             <div className="overflow-y-auto px-6 py-5 space-y-5 flex-1">
               <DialogHeader className="text-left space-y-3">
                 <div className="flex items-center gap-3">
-                  {frame.brand === "SG Eyewear" ? (
-                    <img src={optinovaLogo} alt="SG Eyewear" className="h-8 w-auto object-contain" />
-                  ) : brandLogo ? (
-                    <img src={brandLogo.src} alt={frame.brand} className="h-8 w-auto object-contain max-w-[120px]" />
-                  ) : (
-                    <span className="text-xs font-bold uppercase tracking-wide text-accent">{frame.brand}</span>
-                  )}
+                  <img src={brandLogoSrc} alt={`${frame.brand} logo`} className="h-8 w-auto object-contain max-w-[140px]" />
                 </div>
                 <DialogTitle
                   className="text-xl font-bold text-primary"

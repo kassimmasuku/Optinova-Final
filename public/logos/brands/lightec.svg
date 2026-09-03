@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 110" role="img" aria-label="Lightec">
+  <g fill="none" stroke="#0066B3" stroke-width="4" stroke-linecap="round">
+    <circle cx="46" cy="55" r="22"/>
+    <path d="M46 22v8M46 80v8M19 55h8M65 55h8M27 36l6 6M59 68l6 6M27 74l6-6M59 42l6-6"/>
+  </g>
+  <text x="88" y="68" fill="#0066B3"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="38" font-weight="700" letter-spacing="4">LIGHTEC</text>
+</svg>

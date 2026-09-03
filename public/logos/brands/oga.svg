@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 120" role="img" aria-label="ÖGA">
+  <circle cx="56" cy="58" r="34" fill="none" stroke="#1a1a1a" stroke-width="6"/>
+  <circle cx="56" cy="58" r="14" fill="#1a1a1a"/>
+  <circle cx="62" cy="52" r="5" fill="#fff"/>
+  <circle cx="44" cy="24" r="5" fill="#1a1a1a"/>
+  <circle cx="68" cy="24" r="5" fill="#1a1a1a"/>
+  <text x="108" y="72" fill="#1a1a1a"
+    font-family="Georgia, Times New Roman, serif"
+    font-size="48" font-weight="700" letter-spacing="4">öga</text>
+</svg>

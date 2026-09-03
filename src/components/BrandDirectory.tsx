@@ -1,9 +1,7 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { brandLogoPaths } from "@/lib/brandLogos";
-import { useTheme } from "@/context/ThemeContext";
+import { getBrandLogoSrc } from "@/lib/brandLogos";
 import {
   childrenBrands,
-  getBrandStyle,
   menBrands,
   newArrivalBrands,
   womenBrands,
@@ -17,39 +15,17 @@ const groups = [
 ] as const;
 
 function BrandTile({ name }: { name: string }) {
-  const { theme } = useTheme();
-  const isDark = theme === "dark";
-  const style = getBrandStyle(name);
-  const logo = brandLogoPaths[name];
-  const color = isDark && style.darkColor ? style.darkColor : style.color;
-
   return (
     <div
       className="flex h-24 flex-col items-center justify-center rounded-xl border bg-white px-3 text-center shadow-sm"
       style={{ borderColor: "hsl(var(--border))" }}
     >
-      {logo ? (
-        <img
-          src={logo.src}
-          alt={name}
-          className="h-10 w-auto max-w-full object-contain"
-          loading="lazy"
-        />
-      ) : (
-        <>
-          <span
-            className="text-sm font-bold leading-tight tracking-tight sm:text-base"
-            style={{ color, fontFamily: "Montserrat, sans-serif" }}
-          >
-            {style.display}
-          </span>
-          {style.subline && (
-            <span className="mt-1 text-[10px] uppercase tracking-wider" style={{ color: "hsl(var(--muted-foreground))" }}>
-              {style.subline}
-            </span>
-          )}
-        </>
-      )}
+      <img
+        src={getBrandLogoSrc(name)}
+        alt={`${name} logo`}
+        className="h-12 w-auto max-h-16 max-w-[90%] object-contain"
+        loading="lazy"
+      />
     </div>
   );
 }
