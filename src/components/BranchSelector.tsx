@@ -2,6 +2,7 @@ import { useState } from "react";
 import { MapPin, ExternalLink, Phone, Mail, Clock } from "lucide-react";
 import { branches, getBranchHoursLines } from "@/data/branches";
 import { getEmailLink, getTelLink, getWhatsAppLink } from "@/lib/contact";
+import MobileBranchPicker from "@/components/MobileBranchPicker";
 
 export { branches };
 
@@ -21,7 +22,16 @@ export default function BranchSelector() {
           </p>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-2 mb-8">
+        <MobileBranchPicker
+          branches={branches}
+          selectedId={branch.id}
+          onSelect={(next) => {
+            const index = branches.findIndex((item) => item.id === next.id);
+            if (index >= 0) setActive(index);
+          }}
+        />
+
+        <div className="hidden md:flex flex-wrap justify-center gap-2 mb-8">
           {branches.map((b, i) => (
             <button
               key={b.id}
@@ -119,7 +129,7 @@ export default function BranchSelector() {
               title={`Map of ${branch.full}`}
               src={`https://www.google.com/maps?q=${q}&output=embed`}
               width="100%"
-              height="380"
+              className="h-60 md:h-[380px] w-full"
               style={{ border: 0, display: "block" }}
               allowFullScreen
               loading="lazy"

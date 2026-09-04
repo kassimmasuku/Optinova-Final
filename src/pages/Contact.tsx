@@ -1,10 +1,87 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { MapPin, Globe, Clock, ExternalLink, Phone, Mail } from "lucide-react";
-import { branches, getBranchHoursLines } from "@/data/branches";
+import { branches, getBranchHoursLines, type Branch } from "@/data/branches";
 import { getEmailLink, getTelLink, getWhatsAppLink } from "@/lib/contact";
 import { CallUsButton, WhatsAppButton, EmailButton } from "@/components/ContactActionButton";
+import MobileBranchPicker from "@/components/MobileBranchPicker";
+
+function BranchCard({ branch }: { branch: Branch }) {
+  return (
+    <div className="p-6 bg-white rounded-2xl border shadow-card flex flex-col" style={{ borderColor: "hsl(var(--border))" }}>
+      <div className="feature-icon mb-4">
+        <MapPin className="w-5 h-5" />
+      </div>
+      <div className="font-bold text-sm mb-2" style={{ color: "hsl(var(--primary))", fontFamily: "Montserrat, sans-serif" }}>{branch.full}</div>
+      {branch.offer && <div className="badge-accent mb-3 w-fit">{branch.offer}</div>}
+      <p className="text-sm mb-3 flex-1" style={{ color: "hsl(var(--muted-foreground))" }}>{branch.address}</p>
+
+      <div className="space-y-1.5 text-xs mb-4" style={{ color: "hsl(var(--muted-foreground))" }}>
+        {branch.telephone && (
+          <div className="flex items-center gap-2">
+            <Phone className="w-3 h-3 flex-shrink-0" style={{ color: "hsl(var(--accent))" }} />
+            <span>{branch.telephone}</span>
+          </div>
+        )}
+        {branch.voipTelephone && (
+          <div className="flex items-center gap-2">
+            <Phone className="w-3 h-3 flex-shrink-0" style={{ color: "hsl(var(--accent))" }} />
+            <span>VoIP: {branch.voipTelephone}</span>
+          </div>
+        )}
+        {branch.mobile && (
+          <div className="flex items-center gap-2">
+            <Phone className="w-3 h-3 flex-shrink-0" style={{ color: "hsl(var(--accent))" }} />
+            <span>{branch.mobile}</span>
+          </div>
+        )}
+        <div className="flex items-center gap-2">
+          <Mail className="w-3 h-3 flex-shrink-0" style={{ color: "hsl(var(--accent))" }} />
+          <a href={getEmailLink(branch)} className="hover:underline" style={{ color: "hsl(var(--accent))" }}>{branch.email}</a>
+        </div>
+        <div className="flex items-start gap-2 pt-1">
+          <Clock className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: "hsl(var(--accent))" }} />
+          <div>
+            {getBranchHoursLines(branch.hours).map((line) => (
+              <div key={line.label}>
+                {line.label}: {line.time}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="flex flex-wrap gap-2 mb-3">
+        {getTelLink(branch) && (
+          <a href={getTelLink(branch)!} className="text-xs font-semibold px-3 py-1.5 rounded-full border hover:shadow-sm transition-all" style={{ borderColor: "hsl(var(--border))", color: "hsl(var(--primary))" }}>
+            Call
+          </a>
+        )}
+        {getWhatsAppLink(branch) && (
+          <a href={getWhatsAppLink(branch)!} target="_blank" rel="noopener noreferrer" className="text-xs font-semibold px-3 py-1.5 rounded-full border hover:shadow-sm transition-all" style={{ borderColor: "hsl(var(--accent))", color: "hsl(var(--accent))" }}>
+            WhatsApp
+          </a>
+        )}
+        <a href={getEmailLink(branch)} className="text-xs font-semibold px-3 py-1.5 rounded-full border hover:shadow-sm transition-all" style={{ borderColor: "hsl(var(--border))", color: "hsl(var(--primary))" }}>
+          Email
+        </a>
+      </div>
+
+      <a
+        href={`https://maps.google.com/?q=${encodeURIComponent(branch.query)}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center gap-2 text-sm font-semibold hover:underline mt-auto"
+        style={{ color: "hsl(var(--accent))" }}
+      >
+        View on Google Maps <ExternalLink className="w-3.5 h-3.5" />
+      </a>
+    </div>
+  );
+}
 
 export default function ContactPage() {
+  const [selectedBranch, setSelectedBranch] = useState(branches[0]);
   return (
     <>
       <section className="pt-28 pb-16" style={{ background: "var(--gradient-hero)" }}>
@@ -116,77 +193,17 @@ export default function ContactPage() {
               Visit any of our Optinova Eye Care branches across Harare, Chitungwiza and Ngezi.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {branches.map((b) => (
-              <div key={b.id} className="p-6 bg-white rounded-2xl border shadow-card flex flex-col" style={{ borderColor: "hsl(var(--border))" }}>
-                <div className="feature-icon mb-4">
-                  <MapPin className="w-5 h-5" />
-                </div>
-                <div className="font-bold text-sm mb-2" style={{ color: "hsl(var(--primary))", fontFamily: 'Montserrat, sans-serif' }}>{b.full}</div>
-                {b.offer && <div className="badge-accent mb-3 w-fit">{b.offer}</div>}
-                <p className="text-sm mb-3 flex-1" style={{ color: "hsl(var(--muted-foreground))" }}>{b.address}</p>
-
-                <div className="space-y-1.5 text-xs mb-4" style={{ color: "hsl(var(--muted-foreground))" }}>
-                  {b.telephone && (
-                    <div className="flex items-center gap-2">
-                      <Phone className="w-3 h-3 flex-shrink-0" style={{ color: "hsl(var(--accent))" }} />
-                      <span>{b.telephone}</span>
-                    </div>
-                  )}
-                  {b.voipTelephone && (
-                    <div className="flex items-center gap-2">
-                      <Phone className="w-3 h-3 flex-shrink-0" style={{ color: "hsl(var(--accent))" }} />
-                      <span>VoIP: {b.voipTelephone}</span>
-                    </div>
-                  )}
-                  {b.mobile && (
-                    <div className="flex items-center gap-2">
-                      <Phone className="w-3 h-3 flex-shrink-0" style={{ color: "hsl(var(--accent))" }} />
-                      <span>{b.mobile}</span>
-                    </div>
-                  )}
-                  <div className="flex items-center gap-2">
-                    <Mail className="w-3 h-3 flex-shrink-0" style={{ color: "hsl(var(--accent))" }} />
-                    <a href={getEmailLink(b)} className="hover:underline" style={{ color: "hsl(var(--accent))" }}>{b.email}</a>
-                  </div>
-                  <div className="flex items-start gap-2 pt-1">
-                    <Clock className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: "hsl(var(--accent))" }} />
-                    <div>
-                      {getBranchHoursLines(b.hours).map((line) => (
-                        <div key={line.label}>
-                          {line.label}: {line.time}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex flex-wrap gap-2 mb-3">
-                  {getTelLink(b) && (
-                    <a href={getTelLink(b)!} className="text-xs font-semibold px-3 py-1.5 rounded-full border hover:shadow-sm transition-all" style={{ borderColor: "hsl(var(--border))", color: "hsl(var(--primary))" }}>
-                      Call
-                    </a>
-                  )}
-                  {getWhatsAppLink(b) && (
-                    <a href={getWhatsAppLink(b)!} target="_blank" rel="noopener noreferrer" className="text-xs font-semibold px-3 py-1.5 rounded-full border hover:shadow-sm transition-all" style={{ borderColor: "hsl(var(--accent))", color: "hsl(var(--accent))" }}>
-                      WhatsApp
-                    </a>
-                  )}
-                  <a href={getEmailLink(b)} className="text-xs font-semibold px-3 py-1.5 rounded-full border hover:shadow-sm transition-all" style={{ borderColor: "hsl(var(--border))", color: "hsl(var(--primary))" }}>
-                    Email
-                  </a>
-                </div>
-
-                <a
-                  href={`https://maps.google.com/?q=${encodeURIComponent(b.query)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-semibold hover:underline mt-auto"
-                  style={{ color: "hsl(var(--accent))" }}
-                >
-                  View on Google Maps <ExternalLink className="w-3.5 h-3.5" />
-                </a>
-              </div>
+          <MobileBranchPicker
+            branches={branches}
+            selectedId={selectedBranch.id}
+            onSelect={setSelectedBranch}
+          />
+          <div className="md:hidden">
+            <BranchCard branch={selectedBranch} />
+          </div>
+          <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-6">
+            {branches.map((branch) => (
+              <BranchCard key={branch.id} branch={branch} />
             ))}
           </div>
         </div>
