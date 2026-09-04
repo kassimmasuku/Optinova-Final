@@ -5,7 +5,7 @@ export default function ScreeningPromoBadge() {
     <a
       href="/#find-branch"
       className="screening-promo"
-      aria-label="Free eye screening at Arundel Village"
+      aria-label="Free eye screening at all Optinova branches"
     >
       <span className="screening-promo-inner">
         <span
@@ -13,7 +13,7 @@ export default function ScreeningPromoBadge() {
           style={{ background: "hsl(var(--accent))" }}
         />
         <Sparkles className="w-3.5 h-3.5 shrink-0" style={{ color: "hsl(var(--accent))" }} />
-        <span>Free Eye Screening at Arundel Village</span>
+        <span>Free Eye Screening at All Branches</span>
       </span>
     </a>
   );

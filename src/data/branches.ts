@@ -63,6 +63,7 @@ export const branches: Branch[] = [
     mobile: "0719543828",
     email: "avondale@optinova.co.zw",
     hours: { weekdays: "08:00–17:00", saturday: "09:00–13:00", sunday: "Closed" },
+    offer: "Free screening",
   },
   {
     id: "borrowdale",
@@ -74,6 +75,7 @@ export const branches: Branch[] = [
     mobile: "0719543244",
     email: "borrowdale@optinova.co.zw",
     hours: { weekdays: "08:00–17:00", saturday: "09:00–13:00", sunday: "Closed" },
+    offer: "Free screening",
   },
   {
     id: "chitungwiza",
@@ -85,6 +87,7 @@ export const branches: Branch[] = [
     mobile: "0719542914",
     email: "ctc@optinova.co.zw",
     hours: { weekdays: "08:00–17:00", saturday: "09:00–13:00", sunday: "Closed" },
+    offer: "Free screening",
   },
   {
     id: "eastgate",
@@ -96,6 +99,7 @@ export const branches: Branch[] = [
     mobile: "0719542920",
     email: "eastgate@optinova.co.zw",
     hours: { weekdays: "08:00–17:00", saturday: "09:00–13:00", sunday: "Closed" },
+    offer: "Free screening",
   },
   {
     id: "greenfields",
@@ -106,6 +110,7 @@ export const branches: Branch[] = [
     voipTelephone: "08688008806",
     email: "greenfields@optinova.co.zw",
     hours: { weekdays: "08:00–17:00", saturday: "09:00–13:00", sunday: "Closed" },
+    offer: "Free screening",
   },
   {
     id: "greenwood-park",
@@ -116,6 +121,7 @@ export const branches: Branch[] = [
     telephone: "(024) 700289 / 702793",
     email: "specs@gpeyecentre.com",
     hours: { weekdays: "08:00–17:00", saturday: "Closed", sunday: "Closed" },
+    offer: "Free screening",
   },
   {
     id: "highland-park",
@@ -126,6 +132,7 @@ export const branches: Branch[] = [
     voipTelephone: "08677210747",
     email: "highlands@optinova.co.zw",
     hours: { weekdays: "09:00–18:00", saturday: "09:00–13:00", sunday: "Closed" },
+    offer: "Free screening",
   },
   {
     id: "leopold-takawira",
@@ -137,6 +144,7 @@ export const branches: Branch[] = [
     mobile: "0719543829",
     email: "takawira@optinova.co.zw",
     hours: { weekdays: "08:00–17:00", saturday: "09:00–13:00", sunday: "Closed" },
+    offer: "Free screening",
   },
   {
     id: "newlands",
@@ -148,6 +156,7 @@ export const branches: Branch[] = [
     mobile: "0719543091",
     email: "newlands@optinova.co.zw",
     hours: { weekdays: "08:00–17:00", saturday: "09:00–13:00", sunday: "Closed" },
+    offer: "Free screening",
   },
   {
     id: "ngezi",
@@ -166,5 +175,6 @@ export const branches: Branch[] = [
         { label: "All other days", time: "Closed" },
       ],
     },
+    offer: "Free screening",
   },
 ];
