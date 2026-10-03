@@ -147,7 +147,7 @@ export default function ContactPage() {
                   Call Now
                 </CallUsButton>
                 <WhatsAppButton />
-                <EmailButton />
+                <EmailButton variant="outline" />
                 <Link to="/book-appointment" className="btn-outline-primary">
                   📅 Book Online
                 </Link>

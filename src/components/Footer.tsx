@@ -124,7 +124,7 @@ export default function Footer() {
             <div className="flex flex-wrap gap-2">
               <CallUsButton className="text-xs px-3 py-2" />
               <WhatsAppButton className="text-xs px-3 py-2" />
-              <EmailButton className="text-xs px-3 py-2" variant="outline" />
+              <EmailButton className="text-xs px-3 py-2" />
             </div>
           </div>
         </div>

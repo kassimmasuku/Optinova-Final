@@ -1,3 +1,5 @@
+import { clinicPhotos } from "@/data/clinicPhotos";
+
 export interface GalleryItem {
   name: string;
   description: string;
@@ -11,24 +13,36 @@ export interface GalleryCategory {
   items: GalleryItem[];
 }
 
-/** Equipment categories — images in public/images/equipment */
+const {
+  equipmentAutorefractor,
+  equipmentAutorefractorBack,
+  equipmentAutorefractorChair,
+  equipmentPhoropter,
+  examAutorefractorStaff,
+  examPhoropterConsult,
+  examPhoropterSession,
+  examSlitLampPatient,
+  examTrialLenses,
+} = clinicPhotos;
+
+/** Diagnostic equipment photographed in Optinova clinics */
 export const diagnosticEquipment: GalleryItem[] = [
-  { name: "OCT (Optical Coherence Tomography)", description: "High-resolution cross-sectional imaging of the retina and optic nerve.", image: "/images/equipment/oct.jpg" },
-  { name: "Optical Biometry", description: "Precise measurement of eye dimensions for lens calculations.", image: "/images/equipment/optical-biometry.jpg" },
-  { name: "Autorefractors", description: "Automated objective refraction measurement.", image: "/images/equipment/autorefractor.jpg" },
-  { name: "Keratometers", description: "Corneal curvature measurement for contact lens and surgical planning.", image: "/images/equipment/keratometer.jpg" },
-  { name: "Digital Lensmeters", description: "Accurate verification of spectacle lens prescriptions.", image: "/images/equipment/lensmeter.jpg" },
-  { name: "Slit-Lamp Biomicroscopes", description: "Detailed anterior and posterior segment examination.", image: "/images/equipment/slit-lamp.jpg" },
-  { name: "Tonometers", description: "Intraocular pressure measurement for glaucoma screening.", image: "/images/equipment/tonometer.jpg" },
-  { name: "Visual Field / Perimetry Systems", description: "Peripheral vision assessment and glaucoma monitoring.", image: "/images/equipment/visual-field.jpg" },
-  { name: "Retinal / Fundus Cameras", description: "Digital documentation of the retina and optic disc.", image: "/images/equipment/fundus-camera.jpg" },
-  { name: "Corneal Topography Systems", description: "Detailed mapping of corneal shape and irregularities.", image: "/images/equipment/corneal-topography.jpg" },
-  { name: "Pachymeters", description: "Central corneal thickness measurement.", image: "/images/equipment/pachymeter.jpg" },
-  { name: "Trial Lens Sets", description: "Subjective refraction using precision trial lenses.", image: "/images/equipment/trial-lenses.jpg" },
-  { name: "Phoropters", description: "Comprehensive subjective refraction testing.", image: "/images/equipment/phoropter.jpg" },
-  { name: "Digital Vision Testing Systems", description: "Computerised visual acuity and contrast sensitivity testing.", image: "/images/equipment/vision-testing.jpg" },
-  { name: "Low Vision Assessment Equipment", description: "Tools for evaluating and managing low vision needs.", image: "/images/equipment/low-vision.jpg" },
-  { name: "Keratoconus / Corneal Assessment Equipment", description: "Specialised diagnostics for corneal conditions including keratoconus.", image: "/images/equipment/keratoconus.jpg" },
+  { name: "OCT (Optical Coherence Tomography)", description: "High-resolution cross-sectional imaging of the retina and optic nerve.", image: equipmentPhoropter },
+  { name: "Optical Biometry", description: "Precise measurement of eye dimensions for lens calculations.", image: equipmentAutorefractorChair },
+  { name: "Autorefractors", description: "Automated objective refraction measurement.", image: equipmentAutorefractor },
+  { name: "Keratometers", description: "Corneal curvature measurement for contact lens and surgical planning.", image: equipmentAutorefractorBack },
+  { name: "Digital Lensmeters", description: "Accurate verification of spectacle lens prescriptions.", image: examAutorefractorStaff },
+  { name: "Slit-Lamp Biomicroscopes", description: "Detailed anterior and posterior segment examination.", image: examSlitLampPatient },
+  { name: "Tonometers", description: "Intraocular pressure measurement for glaucoma screening.", image: examTrialLenses },
+  { name: "Visual Field / Perimetry Systems", description: "Peripheral vision assessment and glaucoma monitoring.", image: examPhoropterConsult },
+  { name: "Retinal / Fundus Cameras", description: "Digital documentation of the retina and optic disc.", image: examPhoropterSession },
+  { name: "Corneal Topography Systems", description: "Detailed mapping of corneal shape and irregularities.", image: equipmentAutorefractorChair },
+  { name: "Pachymeters", description: "Central corneal thickness measurement.", image: equipmentAutorefractor },
+  { name: "Trial Lens Sets", description: "Subjective refraction using precision trial lenses.", image: examTrialLenses },
+  { name: "Phoropters", description: "Comprehensive subjective refraction testing.", image: equipmentPhoropter },
+  { name: "Digital Vision Testing Systems", description: "Computerised visual acuity and contrast sensitivity testing.", image: examAutorefractorStaff },
+  { name: "Low Vision Assessment Equipment", description: "Tools for evaluating and managing low vision needs.", image: examPhoropterConsult },
+  { name: "Keratoconus / Corneal Assessment Equipment", description: "Specialised diagnostics for corneal conditions including keratoconus.", image: examSlitLampPatient },
 ];
 
 export const galleryCategories: Record<string, GalleryCategory> = {

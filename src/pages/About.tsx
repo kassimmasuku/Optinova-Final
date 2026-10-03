@@ -1,6 +1,5 @@
 import { useState } from "react";
-import teamImg from "@/assets/optometrist-team.jpg";
-import clinicImg from "@/assets/clinic-interior.jpg";
+import { clinicPhotos } from "@/data/clinicPhotos";
 import { Link } from "react-router-dom";
 import { CheckCircle, ChevronRight } from "lucide-react";
 import { teamMembers, teamGroups, getTeamByGroup, type TeamMember } from "@/data/team";
@@ -80,7 +79,7 @@ export default function AboutPage() {
               </div>
             </div>
             <div className="rounded-3xl overflow-hidden shadow-hero">
-              <img src={clinicImg} alt="Optinova Eye Care clinic interior in Harare" className="w-full h-auto" loading="lazy" />
+              <img src={clinicPhotos.receptionDesk} alt="Optinova Eye Care clinic reception in Harare" className="w-full h-auto" loading="lazy" />
             </div>
           </div>
         </div>
@@ -125,7 +124,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-12">
             <div className="rounded-3xl overflow-hidden shadow-hero lg:sticky lg:top-28">
-              <img src={teamImg} alt="Optinova Eye Care professional team in Harare Zimbabwe" className="w-full h-auto" loading="lazy" />
+              <img src={clinicPhotos.staffRed} alt="Optinova Eye Care team member in Harare Zimbabwe" className="w-full h-auto object-cover" loading="lazy" />
             </div>
             <div>
               <h2 className="section-title">Meet Our Team</h2>

@@ -1,11 +1,22 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
+import { subscribeEmailToMailchimp } from "./mailchimp";
 import { isValidEmail, normalizeEmail, subscribeToNewsletter } from "./newsletter";
+
+vi.mock("./mailchimp", async (importOriginal) => {
+  const actual = await importOriginal<typeof import("./mailchimp")>();
+  return {
+    ...actual,
+    subscribeEmailToMailchimp: vi.fn(),
+  };
+});
+
+const mailchimpSubscribe = vi.mocked(subscribeEmailToMailchimp);
 
 describe("newsletter", () => {
   beforeEach(() => {
     window.localStorage.clear();
-    vi.unstubAllEnvs();
-    vi.unstubAllGlobals();
+    mailchimpSubscribe.mockReset();
+    mailchimpSubscribe.mockResolvedValue({ result: "success", msg: "Thank you for subscribing!" });
   });
 
   it("rejects empty and invalid emails", () => {
@@ -20,23 +31,30 @@ describe("newsletter", () => {
     expect(normalizeEmail("  Tendai@Email.com ")).toBe("tendai@email.com");
   });
 
-  it("stores a new subscriber locally when no endpoint is set", async () => {
-    const result = await subscribeToNewsletter("patient@example.com");
+  it("sends a new subscriber to Mailchimp and remembers them locally", async () => {
+    const result = await subscribeToNewsletter("  Patient@Example.com ");
     expect(result).toEqual({ status: "success" });
+    expect(mailchimpSubscribe).toHaveBeenCalledOnce();
+    expect(mailchimpSubscribe).toHaveBeenCalledWith("patient@example.com");
     expect(await subscribeToNewsletter("patient@example.com")).toEqual({ status: "already" });
+    expect(mailchimpSubscribe).toHaveBeenCalledOnce();
   });
 
-  it("posts to the configured marketing endpoint", async () => {
-    const fetchMock = vi.fn().mockResolvedValue({ ok: true, status: 200 });
-    vi.stubGlobal("fetch", fetchMock);
-    vi.stubEnv("VITE_NEWSLETTER_ENDPOINT", "https://example.com/subscribe");
+  it("treats Mailchimp already-subscribed as already on the list", async () => {
+    mailchimpSubscribe.mockResolvedValue({
+      result: "error",
+      msg: "patient@example.com is already subscribed to list Optinova Eyecare.",
+    });
 
-    const result = await subscribeToNewsletter("patient@example.com");
+    await expect(subscribeToNewsletter("patient@example.com")).resolves.toEqual({ status: "already" });
+  });
 
-    expect(result).toEqual({ status: "success" });
-    expect(fetchMock).toHaveBeenCalledOnce();
-    const [, options] = fetchMock.mock.calls[0];
-    expect(JSON.parse(options.body).email).toBe("patient@example.com");
-    expect(JSON.parse(options.body).source).toBe("website");
+  it("returns an error when Mailchimp signup fails", async () => {
+    mailchimpSubscribe.mockResolvedValue({ result: "error", msg: "0 - Please enter a value" });
+
+    await expect(subscribeToNewsletter("patient@example.com")).resolves.toEqual({
+      status: "error",
+      message: "We could not complete your signup. Please try again.",
+    });
   });
 });

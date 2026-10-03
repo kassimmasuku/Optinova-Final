@@ -17,7 +17,7 @@ import {
   type WhyChooseBenefit,
 } from "@/data/whyChooseBenefits";
 import { getEmailLink, getTelLink, getWhatsAppLink } from "@/lib/contact";
-import equipmentHeroImg from "@/assets/eye-equipment.jpg";
+import equipmentHeroImg from "@/assets/clinic/equipment-phoropter.jpg";
 
 interface WhyChooseBenefitDialogProps {
   benefit: WhyChooseBenefit | null;

@@ -1,5 +1,8 @@
+import { isMailchimpAlreadySubscribed, subscribeEmailToMailchimp } from "./mailchimp";
+
 const STORAGE_KEY = "optinova-newsletter-subscribers";
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const SIGNUP_ERROR = "We could not complete your signup. Please try again.";
 
 export type NewsletterSubscription = {
   email: string;
@@ -41,9 +44,7 @@ function writeLocalSubscriber(entry: NewsletterSubscription): void {
 }
 
 /**
- * Collects a subscriber for later email campaigns.
- * Set VITE_NEWSLETTER_ENDPOINT to a Mailchimp, Formspree, or custom webhook URL
- * that accepts JSON: { email, source, subscribedAt }.
+ * Adds the visitor to the Optinova Mailchimp audience via the public signup form.
  */
 export async function subscribeToNewsletter(rawEmail: string): Promise<SubscribeResult> {
   if (!isValidEmail(rawEmail)) return { status: "invalid" };
@@ -58,27 +59,22 @@ export async function subscribeToNewsletter(rawEmail: string): Promise<Subscribe
     subscribedAt: new Date().toISOString(),
   };
 
-  const endpoint = import.meta.env.VITE_NEWSLETTER_ENDPOINT?.trim();
-  if (endpoint) {
-    try {
-      const response = await fetch(endpoint, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
+  try {
+    const response = await subscribeEmailToMailchimp(email);
+    const message = String(response.msg ?? "");
 
-      if (response.status === 409) return { status: "already" };
-      if (!response.ok) {
-        return { status: "error", message: "We could not complete your signup. Please try again." };
-      }
-    } catch {
-      return { status: "error", message: "We could not complete your signup. Please try again." };
+    if (response.result === "success") {
+      writeLocalSubscriber(payload);
+      return { status: "success" };
     }
-  }
 
-  writeLocalSubscriber(payload);
-  return { status: "success" };
+    if (isMailchimpAlreadySubscribed(message)) {
+      writeLocalSubscriber(payload);
+      return { status: "already" };
+    }
+
+    return { status: "error", message: SIGNUP_ERROR };
+  } catch {
+    return { status: "error", message: SIGNUP_ERROR };
+  }
 }

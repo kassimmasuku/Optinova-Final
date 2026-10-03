@@ -33,7 +33,7 @@ export function ContactActionButton({
   const { openBranchContact } = useBranchContact();
 
   const defaultVariant =
-    action === "whatsapp" ? "whatsapp" : action === "call" ? "secondary" : "outline";
+    action === "whatsapp" ? "whatsapp" : "secondary";
   const btnClass = variantClasses[variant ?? defaultVariant];
 
   const defaultLabels: Record<ContactAction, React.ReactNode> = {

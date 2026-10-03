@@ -67,7 +67,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-2">
             <CallUsButton className="text-xs px-4 py-2" />
             <WhatsAppButton className="text-xs px-4 py-2" />
-            <EmailButton className="text-xs px-4 py-2" variant="outline" />
+            <EmailButton className="text-xs px-4 py-2" />
             <Link to="/book-appointment" className="btn-primary text-xs px-4 py-2">
               Book Appointment
             </Link>
@@ -108,7 +108,7 @@ export default function Navbar() {
               </Link>
               <CallUsButton className="justify-center" />
               <WhatsAppButton className="justify-center" />
-              <EmailButton className="justify-center" variant="outline" />
+              <EmailButton className="justify-center" />
             </div>
           </div>
         </div>

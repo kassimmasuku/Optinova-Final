@@ -1,6 +1,4 @@
-import womanGlassesImg from "@/assets/woman-glasses.jpg";
-import familyImg from "@/assets/family-glasses.jpg";
-import glassesDisplayImg from "@/assets/glasses-display.jpg";
+import { clinicPhotos } from "@/data/clinicPhotos";
 import { Link } from "react-router-dom";
 import { CallUsButton, WhatsAppButton } from "@/components/ContactActionButton";
 import BrandDirectory from "@/components/BrandDirectory";
@@ -72,14 +70,14 @@ export default function EyewearPage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
             <div className="md:col-span-2 rounded-3xl overflow-hidden shadow-hero">
-              <img src={womanGlassesImg} alt="Black African woman trying on prescription glasses at Optinova Harare" className="w-full h-64 md:h-full object-cover" loading="lazy" />
+              <img src={clinicPhotos.framesSunglassesWall} alt="Designer, sunglasses and junior frames at Optinova" className="w-full h-64 md:h-full object-cover" loading="lazy" />
             </div>
             <div className="space-y-6">
               <div className="rounded-3xl overflow-hidden shadow-hero h-44">
-                <img src={familyImg} alt="Black family choosing eyeglasses" className="w-full h-full object-cover" loading="lazy" />
+                <img src={clinicPhotos.staffSunglasses} alt="Eyewear fitting at Optinova" className="w-full h-full object-cover" loading="lazy" />
               </div>
               <div className="rounded-3xl overflow-hidden shadow-hero h-44">
-                <img src={glassesDisplayImg} alt="Large selection of eyeglass frames at Optinova" className="w-full h-full object-cover" loading="lazy" />
+                <img src={clinicPhotos.framesColorRack} alt="Eyeglass frames on display at Optinova" className="w-full h-full object-cover" loading="lazy" />
               </div>
             </div>
           </div>

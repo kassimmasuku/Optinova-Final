@@ -1,5 +1,4 @@
-import childrenImg from "@/assets/children-eye-exam.jpg";
-import equipmentImg from "@/assets/eye-equipment.jpg";
+import { clinicPhotos } from "@/data/clinicPhotos";
 import { Link } from "react-router-dom";
 import { CallUsButton, WhatsAppButton } from "@/components/ContactActionButton";
 
@@ -17,8 +16,8 @@ const services = [
       "Prescription updates",
       "Binocular vision testing",
     ],
-    img: equipmentImg,
-    alt: "Modern eye examination equipment at Optinova Eye Care Harare",
+    img: clinicPhotos.examSlitLampPatient,
+    alt: "Slit-lamp eye examination at Optinova Eye Care",
   },
   {
     id: "prescription-glasses",
@@ -33,6 +32,8 @@ const services = [
       "Blue light filtering lenses",
       "Photochromic (transition) lenses",
     ],
+    img: clinicPhotos.framesColorRack,
+    alt: "Eyeglass frames on display at Optinova Eye Care",
   },
   {
     id: "contact-lenses",
@@ -47,6 +48,8 @@ const services = [
       "Training for new contact lens users",
       "Follow-up care and support",
     ],
+    img: clinicPhotos.examAutorefractorStaff,
+    alt: "Vision assessment for contact lens fitting at Optinova Eye Care",
   },
   {
     id: "children",
@@ -61,8 +64,8 @@ const services = [
       "Myopia management",
       "Learning-related vision testing",
     ],
-    img: childrenImg,
-    alt: "Children's eye examination at Optinova Eye Care Harare",
+    img: clinicPhotos.examPhoropterPatient,
+    alt: "Eye examination at Optinova Eye Care Harare",
   },
   {
     id: "glaucoma",
@@ -77,6 +80,8 @@ const services = [
       "Risk factor assessment",
       "Referral to ophthalmology if needed",
     ],
+    img: clinicPhotos.equipmentPhoropter,
+    alt: "Diagnostic examination equipment at Optinova Eye Care",
   },
   {
     id: "digital-eye-strain",
@@ -91,6 +96,8 @@ const services = [
       "Ergonomic advice",
       "Specialised digital lenses",
     ],
+    img: clinicPhotos.examAutorefractorStaff,
+    alt: "Optinova staff helping a patient with vision needs",
   },
   {
     id: "keratoconus",
@@ -105,6 +112,8 @@ const services = [
       "Contact lens options for irregular corneas",
       "Ongoing monitoring and follow-up care",
     ],
+    img: clinicPhotos.examTrialLenses,
+    alt: "Corneal and anterior-segment examination at Optinova Eye Care",
   },
   {
     id: "low-vision",
@@ -119,6 +128,8 @@ const services = [
       "Daily living adaptation guidance",
       "Follow-up vision monitoring",
     ],
+    img: clinicPhotos.examPhoropterConsult,
+    alt: "Optometrist conducting a vision assessment at Optinova Eye Care",
   },
 ];
 

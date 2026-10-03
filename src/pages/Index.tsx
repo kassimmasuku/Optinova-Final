@@ -1,5 +1,4 @@
-import heroImg from "@/assets/hero-eye-exam.jpg";
-import familyImg from "@/assets/family-glasses.jpg";
+import { clinicPhotos } from "@/data/clinicPhotos";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { CheckCircle, Eye, Users, Shield, MapPin, Clock, Award, ChevronRight } from "lucide-react";
@@ -77,9 +76,9 @@ export default function HomePage() {
       <section className="relative min-h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src={heroImg}
-            alt="Professional eye care examination at Optinova Eye Care Harare"
-            className="w-full h-full object-cover"
+            src={clinicPhotos.clinicSign}
+            alt="Optinova Eye Care clinic sign"
+            className="w-full h-full object-cover object-[center_40%]"
             loading="eager"
           />
           <div className="hero-overlay absolute inset-0" />
@@ -191,8 +190,8 @@ export default function HomePage() {
             <div className="relative">
               <div className="rounded-3xl overflow-hidden shadow-hero">
                 <img
-                  src={familyImg}
-                  alt="Black family choosing eyeglasses at Optinova Eye Care Harare"
+                  src={clinicPhotos.receptionLounge}
+                  alt="Optinova Eye Care waiting lounge and optical dispensary"
                   className="w-full h-auto"
                   loading="lazy"
                 />

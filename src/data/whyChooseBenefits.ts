@@ -1,11 +1,4 @@
-import equipmentImg from "@/assets/eye-equipment.jpg";
-import heroImg from "@/assets/hero-eye-exam.jpg";
-import clinicImg from "@/assets/clinic-interior.jpg";
-import childrenImg from "@/assets/children-eye-exam.jpg";
-import kidsImg from "@/assets/kids-vision-test.jpg";
-import teamImg from "@/assets/optometrist-team.jpg";
-import glassesImg from "@/assets/glasses-display.jpg";
-import familyImg from "@/assets/family-glasses.jpg";
+import { clinicPhotos } from "@/data/clinicPhotos";
 import { diagnosticEquipment } from "@/data/galleryCategories";
 
 export type BenefitContentType =
@@ -34,7 +27,7 @@ export interface EquipmentShowcaseItem {
 export const equipmentShowcase: EquipmentShowcaseItem[] = diagnosticEquipment.map((item) => ({
   name: item.name,
   description: item.description,
-  image: item.image ?? equipmentImg,
+  image: item.image ?? clinicPhotos.equipmentPhoropter,
 }));
 
 export const whyChooseBenefits: WhyChooseBenefit[] = [
@@ -86,17 +79,17 @@ export const patientCareHighlights = [
   {
     title: "Personalised Consultations",
     description: "One-on-one time with your optometrist to understand your vision needs and concerns.",
-    image: familyImg,
+    image: clinicPhotos.examPhoropterConsult,
   },
   {
     title: "Welcoming Clinic Environment",
     description: "Clean, modern spaces designed to put patients of all ages at ease.",
-    image: clinicImg,
+    image: clinicPhotos.receptionLounge,
   },
   {
     title: "Clear Communication",
     description: "We explain every step of your examination and answer your questions in plain language.",
-    image: teamImg,
+    image: clinicPhotos.staffRed,
   },
 ];
 
@@ -104,17 +97,17 @@ export const affordableHighlights = [
   {
     title: "Wide Frame Selection",
     description: "Designer and affordable frames, including SG Eyewear — options for every style and budget.",
-    image: glassesImg,
+    image: clinicPhotos.framesColorRack,
   },
   {
     title: "Quality Lens Options",
     description: "Single vision, progressive, anti-glare and blue-light filtering lenses at competitive prices.",
-    image: familyImg,
+    image: clinicPhotos.framesSunglassesWall,
   },
   {
     title: "Value Without Compromise",
     description: "Professional fitting and aftercare included with every eyewear purchase.",
-    image: glassesImg,
+    image: clinicPhotos.sgEyewearWall,
   },
 ];
 
