@@ -4,6 +4,7 @@ import wysonPhoto from "@/assets/wyson.png";
 import hastingsPhoto from "@/assets/hastings-chalawe.png";
 import stevenPhoto from "@/assets/steven-chimwala.png";
 import limbaniPhoto from "@/assets/limbani-kalonga.png";
+import solomonPhoto from "@/assets/solomon-guramatunhu.jpg";
 
 export type TeamGroup = "Directors" | "Leadership" | "Optometrists";
 export type TeamAvatarType = "male" | "female";
@@ -31,7 +32,7 @@ export const teamMembers: TeamMember[] = [
     role: "Director & Chief Executive Officer",
     experience: "30+ years experience",
     group: "Directors",
-    avatar: "male",
+    photo: solomonPhoto,
     qualifications: [
       "Medical degree — University of Zimbabwe",
       "Ophthalmology qualifications — Royal College of Surgeons of England",
