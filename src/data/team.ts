@@ -5,6 +5,7 @@ import hastingsPhoto from "@/assets/hastings-chalawe.png";
 import stevenPhoto from "@/assets/steven-chimwala.png";
 import limbaniPhoto from "@/assets/limbani-kalonga.png";
 import solomonPhoto from "@/assets/solomon-guramatunhu.jpg";
+import lorrainePhoto from "@/assets/lorraine-sanyika.jpg";
 
 export type TeamGroup = "Directors" | "Leadership" | "Optometrists";
 export type TeamAvatarType = "male" | "female";
@@ -16,6 +17,7 @@ export interface TeamMember {
   experience: string;
   group: TeamGroup;
   photo?: string;
+  photoFocus?: "top" | "center";
   avatar?: TeamAvatarType;
   qualifications: string[];
   areasOfExpertise: string[];
@@ -74,7 +76,8 @@ export const teamMembers: TeamMember[] = [
     role: "Operations Manager",
     experience: "20+ years in the optical industry",
     group: "Leadership",
-    avatar: "female",
+    photo: lorrainePhoto,
+    photoFocus: "center",
     qualifications: [
       "OA ABDO",
       "Diploma in Optical Retail Management — Association of British Dispensing Opticians",

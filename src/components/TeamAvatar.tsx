@@ -44,7 +44,12 @@ export default function TeamAvatar({ member, size = "md", className }: TeamAvata
       <img
         src={member.photo}
         alt={member.name}
-        className={cn(sizeClass[size], "rounded-full object-cover object-top", className)}
+        className={cn(
+          sizeClass[size],
+          "rounded-full object-cover",
+          member.photoFocus === "center" ? "object-center" : "object-top",
+          className,
+        )}
       />
     );
   }
