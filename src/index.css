@@ -460,6 +460,14 @@
   .dark .partner-logo {
     background-color: #f6f7f6;
   }
+
+  /* Optinova wordmark plate — `.dark .bg-white` remaps Tailwind white to the
+     dark card, which looks like a dark margin around the logo. Keep this
+     plate white in both themes so padding matches light mode. */
+  .site-logo-plate {
+    background-color: #ffffff;
+    color-scheme: light;
+  }
 }
 
 @layer utilities {

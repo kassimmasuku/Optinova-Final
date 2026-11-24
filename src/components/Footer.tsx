@@ -49,7 +49,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div>
             <div className="mb-5">
-              <div className="inline-block bg-white rounded-xl px-4 py-2.5">
+              <div className="site-logo-plate inline-block rounded-xl px-4 py-2.5">
                 <img src={logoAsset} alt="Optinova Eye Care logo" className="h-12 w-auto object-contain" />
               </div>
             </div>

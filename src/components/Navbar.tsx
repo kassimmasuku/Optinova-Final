@@ -43,7 +43,7 @@ export default function Navbar() {
         {/* Main nav */}
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center group">
-            <div className="bg-white rounded-xl px-3 py-1.5 shadow-md transition-transform group-hover:scale-105">
+            <div className="site-logo-plate rounded-xl px-3 py-1.5 shadow-md transition-transform group-hover:scale-105">
               <img src={logoAsset} alt="Optinova Eye Care logo" className="h-9 w-auto object-contain" />
             </div>
           </Link>
