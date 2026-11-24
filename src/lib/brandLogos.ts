@@ -42,6 +42,19 @@ export const brandLogoPaths: Record<string, BrandLogoAsset> = {
   "Philipp Plein": { src: "/logos/brands/philipp-plein.png", ext: "png" },
   Azur: { src: "/logos/brands/azur.png", ext: "png" },
   "SG Eyewear": { src: "/logos/brands/sg-eyewear.png", ext: "png" },
+  Guess: { src: "/logos/brands/guess.svg", ext: "svg" },
+  "Julia Baker": { src: "/logos/brands/julia-baker.svg", ext: "svg" },
+  "Karl Lagerfeld": { src: "/logos/brands/karl-lagerfeld.svg", ext: "svg" },
+  Kubik: { src: "/logos/brands/kubik.svg", ext: "svg" },
+  Lui: { src: "/logos/brands/lui.svg", ext: "svg" },
+  "Marc Jacobs": { src: "/logos/brands/marc-jacobs.svg", ext: "svg" },
+  "Paul Smith": { src: "/logos/brands/paul-smith.svg", ext: "svg" },
+  "Ted Walker": { src: "/logos/brands/ted-walker.svg", ext: "svg" },
+  Timberland: { src: "/logos/brands/timberland.svg", ext: "svg" },
+  Tous: { src: "/logos/brands/tous.svg", ext: "svg" },
+  Yalea: { src: "/logos/brands/yalea.svg", ext: "svg" },
+  ZEISS: { src: "/logos/brands/zeiss.svg", ext: "svg" },
+  "Mixed Brands": { src: "/logos/brands/mixed-brands.svg", ext: "svg" },
 };
 
 export function getBrandLogoSrc(name: string): string {

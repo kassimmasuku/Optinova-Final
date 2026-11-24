@@ -1,4 +1,5 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import PartnerLogo from "@/components/PartnerLogo";
 import { getBrandLogoSrc } from "@/lib/brandLogos";
 import {
   childrenBrands,
@@ -16,17 +17,13 @@ const groups = [
 
 function BrandTile({ name }: { name: string }) {
   return (
-    <div
-      className="flex h-24 flex-col items-center justify-center rounded-xl border bg-white px-3 text-center shadow-sm"
-      style={{ borderColor: "hsl(var(--border))" }}
-    >
-      <img
-        src={getBrandLogoSrc(name)}
-        alt={`${name} logo`}
-        className="h-12 w-auto max-h-16 max-w-[90%] object-contain"
-        loading="lazy"
-      />
-    </div>
+    <PartnerLogo
+      src={getBrandLogoSrc(name)}
+      alt={`${name} logo`}
+      className="h-24 w-full rounded-xl border border-border shadow-sm"
+      imgClassName="h-12 max-h-16 max-w-[90%]"
+      loading="lazy"
+    />
   );
 }
 

@@ -115,6 +115,19 @@ export const brandLogoStyles: Record<string, BrandLogoStyle> = {
   "Philipp Plein": { display: "PHILIPP PLEIN", color: "#C9A227", bgLight: "#fdfbf3", bgDark: "#2a2418" },
   Azur: { display: "AZUR", color: "#0066B3", bgLight: "#f0f7fc", bgDark: "#142028" },
   "SG Eyewear": { display: "SG", subline: "Eyewear", color: "#0C6835", bgLight: "#f0faf4", bgDark: "#142318" },
+  Guess: { display: "GUESS", color: "#000000", darkColor: "#ffffff", bgLight: "#f5f5f5", bgDark: "#1a1a1a" },
+  "Julia Baker": { display: "JULIA BAKER", color: "#1a1a1a", darkColor: "#f5f5f5", bgLight: "#fafafa", bgDark: "#1c1c1c" },
+  "Karl Lagerfeld": { display: "KARL LAGERFELD", color: "#000000", darkColor: "#ffffff", bgLight: "#f5f5f5", bgDark: "#1a1a1a" },
+  Kubik: { display: "KUBIK", color: "#1a1a1a", darkColor: "#f5f5f5", bgLight: "#fafafa", bgDark: "#181818" },
+  Lui: { display: "LUI", color: "#000000", darkColor: "#ffffff", bgLight: "#f5f5f5", bgDark: "#1a1a1a" },
+  "Marc Jacobs": { display: "MARC JACOBS", color: "#000000", darkColor: "#ffffff", bgLight: "#fafafa", bgDark: "#181818" },
+  "Paul Smith": { display: "PAUL SMITH", color: "#E30613", bgLight: "#fff5f5", bgDark: "#2a1418" },
+  "Ted Walker": { display: "TED WALKER", color: "#1a1a1a", darkColor: "#f5f5f5", bgLight: "#f7f7f7", bgDark: "#1a1a1a" },
+  Timberland: { display: "TIMBERLAND", color: "#C47900", bgLight: "#fdf8f3", bgDark: "#2a2218" },
+  Tous: { display: "TOUS", color: "#C9A227", bgLight: "#fdfbf3", bgDark: "#2a2418" },
+  Yalea: { display: "YALEA", color: "#6B2D5B", darkColor: "#f5d0ea", bgLight: "#faf5f8", bgDark: "#24141e" },
+  ZEISS: { display: "ZEISS", color: "#0066B3", bgLight: "#f0f7fc", bgDark: "#142028" },
+  "Mixed Brands": { display: "SUNGLASSES", color: "#1a1a1a", darkColor: "#f5f5f5", bgLight: "#f7f7f7", bgDark: "#1a1a1a" },
 };
 
 export function getBrandStyle(name: string): BrandLogoStyle {

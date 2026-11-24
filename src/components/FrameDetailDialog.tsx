@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/dialog";
 import { ContactActionButton } from "@/components/ContactActionButton";
 import { getBrandLogoSrc } from "@/lib/brandLogos";
+import PartnerLogo from "@/components/PartnerLogo";
 import type { FrameProduct } from "@/data/frames";
 import { getPromoLabel, getPromoStyle } from "@/data/frames";
 
@@ -42,7 +43,7 @@ export default function FrameDetailDialog({ frame, onClose }: FrameDetailDialogP
               <img
                 src={frame.img}
                 alt={`${frame.name} — ${frame.brand}`}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain bg-white"
               />
               {promoLabel && promoStyle && (
                 <span
@@ -59,7 +60,12 @@ export default function FrameDetailDialog({ frame, onClose }: FrameDetailDialogP
             <div className="overflow-y-auto px-6 py-5 space-y-5 flex-1">
               <DialogHeader className="text-left space-y-3">
                 <div className="flex items-center gap-3">
-                  <img src={brandLogoSrc} alt={`${frame.brand} logo`} className="h-8 w-auto object-contain max-w-[140px]" />
+                  <PartnerLogo
+                    src={brandLogoSrc}
+                    alt={`${frame.brand} logo`}
+                    className="h-12 max-w-[160px] rounded-lg px-3 py-2"
+                    imgClassName="h-8 max-w-[140px]"
+                  />
                 </div>
                 <DialogTitle
                   className="text-xl font-bold text-primary"

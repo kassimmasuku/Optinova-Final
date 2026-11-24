@@ -11,6 +11,7 @@ import {
   frameMaterials,
   frameTypes,
   promoOptions,
+  hasFramePromos,
   getPromoLabel,
   getPromoStyle,
   type FrameProduct,
@@ -137,7 +138,7 @@ export default function LensCollection() {
         {showFilters && (
           <div id="frame-filters-panel" className="frame-filter-panel mb-10 space-y-4">
             <FilterRow label="Brand" options={frameBrands} value={brand} onChange={setBrand} />
-            <FilterRow label="Promo" options={promoOptions} value={promo} onChange={setPromo} />
+            {hasFramePromos && <FilterRow label="Promo" options={promoOptions} value={promo} onChange={setPromo} />}
             <FilterRow label="Category" options={frameCategories} value={category} onChange={setCategory} />
             <FilterRow label="Shape" options={frameShapes} value={shape} onChange={setShape} />
             <FilterRow label="Material" options={frameMaterials} value={material} onChange={setMaterial} />
@@ -173,7 +174,7 @@ export default function LensCollection() {
                       width={800}
                       height={600}
                       loading="lazy"
-                      className="w-full h-44 object-cover"
+                      className="w-full h-44 object-contain bg-white"
                     />
                     {promoLabel && (
                       <span

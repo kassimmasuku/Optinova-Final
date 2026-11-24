@@ -1,5 +1,6 @@
 import { ShieldCheck } from "lucide-react";
 import { medicalAids } from "@/data/medicalAids";
+import PartnerLogo from "@/components/PartnerLogo";
 
 export default function MedicalAidSlider() {
   return (
@@ -22,19 +23,15 @@ export default function MedicalAidSlider() {
 
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4">
         {medicalAids.map((aid) => (
-          <div
+          <PartnerLogo
             key={aid.name}
-            className="flex h-28 items-center justify-center rounded-xl border bg-white px-4 py-3 transition-shadow duration-200 hover:shadow-md dark:bg-white"
-            style={{ borderColor: "hsl(var(--border))" }}
+            src={aid.logo}
+            alt={aid.name}
             title={aid.name}
-          >
-            <img
-              src={aid.logo}
-              alt={aid.name}
-              className="max-h-[72px] w-auto max-w-full object-contain"
-              loading="lazy"
-            />
-          </div>
+            className="h-28 w-full rounded-xl border border-border transition-shadow duration-200 hover:shadow-md"
+            imgClassName="max-h-[72px]"
+            loading="lazy"
+          />
         ))}
       </div>
 

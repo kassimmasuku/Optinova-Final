@@ -434,6 +434,32 @@
   .logo-slider-item img {
     object-fit: contain;
   }
+
+  /* Partner logos (medical aids + frame brands): keep original artwork.
+     `.dark .bg-white` remaps Tailwind white to the dark card, so these
+     surfaces use a dedicated class that stays light in dark mode. */
+  .partner-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    color-scheme: light;
+    border-radius: 0.75rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .partner-logo-img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  .dark .partner-logo {
+    background-color: #f6f7f6;
+  }
 }
 
 @layer utilities {
